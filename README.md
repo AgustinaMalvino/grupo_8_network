@@ -25,4 +25,5 @@ Manjarres Carlos
 
 
 Mi nombre es Belén López, en la actualidad además del curso, me encuentro cursando una Licenciatura en Comunicación y trabajo en un Call Center que se dedica a la comercialización  de servicios de cable, internet y telefonía fija y móvil.
+
 Mi nombre es Agustina Malvino, y yo actualmente estoy cursando una Tecnicatura en Administracion de Empresas y trabajo en el mismo Call Center que Belen. 
