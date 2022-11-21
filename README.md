@@ -8,19 +8,19 @@ A fin de hacer atractiva nuestra oferta y que además satisfaga las diferentes n
 
 Como somos una empresa nueva y queremos que los clientes nos conozcan y se familiaricen con los servicios que ofrecemos, en la oferta incluiremos un período sin cargo.
 
-Para realizar este trabajo, hemos seleccionado los siguientes sitios web que nos servirán de ejemplo:
-Telecentro
-Personal Flow
-Claro
-Movistar
+Para realizar este trabajo, hemos seleccionado los siguientes sitios web que nos servirán de ejemplo: Telecentro, Personal Flow, Claro, DirecTV y Movistar, .
 
 Los sitios fueron eleguidos porque comercializan los mismos servicios que nosotros queremos ofrecer.
 
 El grupo de trabajo estará compuesto por 5 integrantes:
 Agustina Malvino
+
 Belén López
+
 Federico Diganchi
+
 Leonardo Froidevaux
+
 Manjarres Carlos
 
 
