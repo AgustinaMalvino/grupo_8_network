@@ -13,16 +13,12 @@ Para realizar este trabajo, hemos seleccionado los siguientes sitios web que nos
 Los sitios fueron eleguidos porque comercializan los mismos servicios que nosotros queremos ofrecer.
 
 El grupo de trabajo estará compuesto por 5 integrantes:
+
 Agustina Malvino
-
 Belén López
-
+Carlos Manjarres
 Federico Diganchi
-
 Leonardo Froidevaux
-
-Manjarres Carlos
-
 
 Mi nombre es Belén López, en la actualidad además del curso, me encuentro cursando una Licenciatura en Comunicación y trabajo en un Call Center que se dedica a la comercialización  de servicios de cable, internet y telefonía fija y móvil.
 
