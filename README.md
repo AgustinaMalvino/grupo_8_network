@@ -15,6 +15,7 @@ Los sitios fueron eleguidos porque comercializan los mismos servicios que nosotr
 El grupo de trabajo estará compuesto por 5 integrantes:
 
 Agustina Malvino
+
 Belén López
 Carlos Manjarres
 Federico Diganchi
