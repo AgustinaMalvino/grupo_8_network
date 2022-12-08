@@ -1,0 +1,24 @@
+{
+  "name": "grupo_8_nombre",
+  "version": "1.0.0",
+  "description": "Nuestro e-commerce se va a centrar en la comercialización de servicios de cable e internet para el hogar, en la zona de Capital Federal. \r  Adicionalmente el cliente podrá contratar paquetes extras tales como Paramount, Star+, Disney Plus y HBO y/o\r  aplicaciones como Netflix, Spotify o YouTube.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AgustinaMalvino/grupo_8_nombre.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AgustinaMalvino/grupo_8_nombre/issues"
+  },
+  "homepage": "https://github.com/AgustinaMalvino/grupo_8_nombre#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
+}
