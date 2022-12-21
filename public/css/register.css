@@ -1,0 +1,151 @@
+@import url(/public/css/styles.css);
+
+.main{
+    background-color: #D5C67A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 0;
+}
+
+h2{
+    text-align: center;
+}
+
+nav{
+    margin: auto;
+}
+
+nav li{
+    padding: 8px;
+    position: relative;
+    display: block;
+    padding-bottom: 25px;
+    list-style: none;
+    margin-top: 10px;
+}
+
+nav input{
+    position: absolute;
+    top: 30px;
+    left: 7.5px;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;
+    border-style: none;
+
+}
+
+nav select{
+    position: absolute;
+    top: 30px;
+    left: 7.5px;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;
+    border-style: none;
+}
+
+.condiciones{
+    padding: 5px;
+    padding-top: 20px;
+    padding-left: 7.5px;
+    font-size: 15.5px;
+    line-height: 23px;
+}
+
+.notificacion{
+    padding: 5px;
+    padding-bottom: 20px;
+    padding-left: 7.5px;
+    font-size: 15.5px;
+    line-height: 23px;
+}
+
+.botones{
+    display: flex;
+    justify-content:space-between;
+}
+
+.boton, .boton-borrar{
+    width: 45%;
+}
+
+.boton button, .boton-borrar button{
+    width: 100%;
+    padding: 9px;
+    border-radius: 10px;
+    background-color: #005377;
+    color: #fff;
+}
+
+.boton:hover button, .boton-borrar:hover button{
+    background-color: #337794;
+    cursor: pointer;
+}
+
+
+button{
+    border-style: none;
+}
+
+.register{
+    width: 70%;
+    margin: 16px 0;
+}
+
+/* tablet */
+@media (min-width: 410px){
+    nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;  
+    margin-top: 15px;
+    }
+
+    nav li {
+        margin-top: 30px;
+    }
+
+    .nav-izq-der{
+        justify-content: space-around;
+        width: 45%;
+    }
+}
+
+
+/* compu */
+@media (min-width:860px){
+    nav input{
+        padding: 10px;
+        font-size: 17.5px;
+        margin-top: 6px;
+    }
+
+    nav li{
+        font-size: 20px;
+        margin-bottom: 15px;
+        padding-bottom: 30px;
+    }
+
+    nav select{
+        padding: 10px;
+        font-size: 17.5px;
+        margin-top: 6px;
+    }
+
+    .boton button, .boton-borrar button{
+        padding: 10px;
+        font-size: 17.5px;
+        margin-top: 6px;
+    }
+
+    .condiciones, .notificacion{
+        font-size: 16px;
+    }
+
+    h2{
+        font-size: 45px;
+    }
+}
