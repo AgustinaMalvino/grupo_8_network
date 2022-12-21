@@ -1,0 +1,198 @@
+/* PALETA DE COLORES:
+
+Smoky Black: #140401 
+Blue Sapphire: #005377
+Green Munsell: #06A77D
+Dark Khaki: #D5C67A
+Marigold: #F1A208
+
+*/
+
+@import url(/css/styles.css);
+
+.servicio {
+    font-size: 25px;
+    padding: 20px;
+    width: 80%;
+    font-weight: bold;
+}
+
+header {
+    display: flex;
+    align-items: center;
+}
+
+body > ul > li {
+    font-size: 15px;   
+    padding-left: 20px;   
+}
+
+
+
+body {
+    background: linear-gradient(45deg, var(--negro), var(--azul));
+    font-family: Nunito;
+    color: white;
+}
+
+.detalles, .domicilio, .diayhora, .datosdecontacto {
+    padding: 20px 20px 0px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+.editarpedido {
+    
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    background: linear-gradient(to top right, #005377, #06A77D);
+    border-radius: 10px;
+    color: white;
+}
+
+.editarpedido:hover {
+    background: linear-gradient(to bottom left, #005377, #06A77D);
+}
+
+
+.datosdeinstalacion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    
+}
+
+.calle, .fecha, .email, .celular {
+    width: 90%;
+    height: 24px;
+    text-align: center;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: white;
+    background-color: #fff;
+    font-weight: normal;
+    
+}
+
+.celular {
+    margin-top: 5px;
+}
+
+.fecha {
+    width: 80%;
+}
+
+.corregirbotoneditardatos {
+    text-align: right;
+}
+
+/* .editardatos {
+    
+    text-align: center;
+    width: 25%;
+    margin-right: 3%;
+    font-size: 15px;
+    background: linear-gradient(to top right, #005377, #06A77D);
+    border-radius: 10%;
+    border-width: 1px;
+} */
+
+.cancelarpedido, .confirmarpedido {
+    
+    width: 40%;
+    height: 35px;
+    font-size: 15px;
+    background: linear-gradient(to top right, #005377, #06A77D);
+    border-radius: 10px;
+    color: white;
+}
+
+.botonescancelaryconfirmar {
+    margin-top: 20px;
+}
+.cancelarpedido:hover, .confirmarpedido:hover {
+    background: linear-gradient(to bottom left, #005377, #06A77D);
+}
+/* VISTA DE TABLET */
+
+@media (min-width: 410px) {
+
+    .domicilio {
+        margin-left: 43px;
+    } 
+
+    .emailycelular {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-end;
+    }
+
+    .email, .celular, .diayhora, .domicilio {
+        display: flex;
+        flex-wrap: wrap;
+        width: 40%;
+    }
+
+    .botonescancelaryconfirmar {
+        display: flex;    
+        justify-content: space-around;
+        margin-top: 30px;              
+    }
+
+    .cancelarpedido, .confirmarpedido {
+        width: 100%;
+    }
+
+}
+
+/* VISTA DE PC */
+
+@media (min-width: 860px) {
+
+    .servicio {
+        font-size: 40px;
+    }
+
+    body {
+        background-color: #D5C67A;
+        font-style: Nunito;
+    }
+
+    .editarpedido {
+        font-size: 20px;
+    }
+    
+    .especificacion {
+        font-size: 30px;
+        padding: 20px;
+        width: 80%;
+    }
+    
+    header {
+        display: flex;
+        align-items: center;
+    }
+    
+    header > ul > li {
+        font-size: 20px;
+        
+    }
+    
+    .detalles {
+        font-size: 25px;
+    }
+
+    .domicilio {
+        margin-left: 55px;
+    }
+
+    .botonescancelaryconfirmar {
+        margin-top: 20px;
+    }
+
+
+}
