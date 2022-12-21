@@ -1,7 +1,8 @@
 @import url(/public/css/styles.css);
 
 .main{
-    background-color: #D5C67A;
+    background-color: var(--azul);
+    background: linear-gradient(45deg, var(--negro), var(--azul));
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,6 +12,7 @@
 
 h2{
     text-align: center;
+    color: #fff;
 }
 
 nav{
@@ -24,6 +26,7 @@ nav li{
     padding-bottom: 25px;
     list-style: none;
     margin-top: 10px;
+    color: #fff;  
 }
 
 nav input{
@@ -53,6 +56,7 @@ nav select{
     padding-left: 7.5px;
     font-size: 15.5px;
     line-height: 23px;
+    color: #fff;
 }
 
 .notificacion{
@@ -61,6 +65,7 @@ nav select{
     padding-left: 7.5px;
     font-size: 15.5px;
     line-height: 23px;
+    color: #fff;
 }
 
 .botones{
@@ -76,12 +81,12 @@ nav select{
     width: 100%;
     padding: 9px;
     border-radius: 10px;
-    background-color: #005377;
+    background: linear-gradient(to top right, #005377, #06A77D);
     color: #fff;
 }
 
 .boton:hover button, .boton-borrar:hover button{
-    background-color: #337794;
+    background: linear-gradient(to bottom left, #005377, #06A77D);
     cursor: pointer;
 }
 
