@@ -13,14 +13,14 @@
 }
 
 #imagen-perfil{
-    width: 50px;
-    height: 50px;
+    width: 9vw;
+    height: 9vw;
     border-radius: 50%;
     border-style: solid;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 4vw;
     background-color: var(--azul);
 }
 
@@ -32,6 +32,17 @@
     background: linear-gradient(45deg, var(--negro), var(--azul));
     color: #FFF;
     position: relative;
+}
+
+.inicio-sesion{
+    padding: 0.5rem;
+    border-radius: 10px;
+    background: linear-gradient(to top right, #005377, #06A77D);
+    color: #FFF;
+}
+
+.inicio-sesion:hover{
+    background: linear-gradient(to bottom left, #005377, #06A77D);
 }
 
 .mi-cuenta{
@@ -154,13 +165,13 @@ footer ul, footer ul li{
     }
 
     .mi-cuenta p{
-        font-size: 3vw;
+        font-size: 2.5vw;
     }
 
     #imagen-perfil{
-    width: 10vw;
-    height: 10vw;
-    font-size: 5vw;
+    width: 7vw;
+    height: 7vw;
+    font-size: 3vw;
     }
 
     .informacion-footer{
@@ -188,9 +199,9 @@ footer ul, footer ul li{
     }
 
     #imagen-perfil{
-        width: 75px;
-        height: 75px;
-        font-size: 2.5rem;
+        width: 5vw;
+        height: 5vw;
+        font-size: 2vw;
     }
 
     .mi-cuenta p{

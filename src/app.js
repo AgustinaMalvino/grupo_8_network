@@ -12,3 +12,7 @@ console.log("Servidor corriendo en http://localhost:" + port)
 app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/index.html'));
 });
+
+app.get('/register', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/register.html'));
+});
