@@ -1,0 +1,117 @@
+@import url(/public/css/styles.css);
+
+
+.main{
+    background-color: var(--azul);
+    background: linear-gradient(45deg, var(--negro), var(--azul));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.login {
+    width: 40%;
+    margin: 1rem 0;
+}
+
+
+h2{
+    text-align: center;
+    color: #fff;
+}
+
+.botones{
+    display: flex;
+    justify-content:center;
+    color:#fff;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    
+}
+
+.boton-iniciar {
+    width: 70%;
+    margin: 1rem 0;
+}
+
+.link-olvidaste{
+    margin: 12px 0;
+}
+
+.boton-iniciar button{
+    width: 100%;
+    padding: 9px;
+    border-radius: 10px;
+    background: linear-gradient(to top right, #005377, #06A77D);
+    color: #fff;
+}
+
+.boton-iniciar:hover button{
+    background: linear-gradient(to bottom left, #005377, #06A77D);
+    cursor: pointer;
+}
+
+.botones a{
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    text-align: center;
+}
+
+.correo{
+    color: #fff;
+}
+
+.contra{
+    color: #fff;
+}
+
+nav{
+    margin: auto;
+}
+
+nav li{
+    padding: 8px;
+    position: relative;
+    display: block;
+    padding-bottom: 25px;
+    list-style: none;
+    margin-top: 10px;
+    color: #fff;  
+}
+
+nav input{
+    border-radius: 10px;
+    width: 100%;
+    border-style: none;
+    background-color: #fff;
+}
+
+
+/* compu */
+@media (min-width:860px){
+    nav input{
+        padding: 10px;
+        font-size: 17.5px;
+        margin-top: 6px;
+    }
+
+    nav li{
+        font-size: 20px;
+        margin-bottom: 15px;
+        padding-bottom: 30px;
+    }
+
+
+    .boton-iniciar button{
+        padding: 10px;
+        font-size: 17.5px;
+        margin-top: 6px;
+    }
+
+    h2{
+        font-size: 45px;
+    }
+}

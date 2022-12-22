@@ -10,10 +10,12 @@
     padding: 16px 0;
 }
 
+
 h2{
     text-align: center;
     color: #fff;
 }
+
 
 nav{
     margin: auto;
@@ -37,6 +39,7 @@ nav input{
     border-radius: 10px;
     width: 100%;
     border-style: none;
+    background-color: #fff;
 
 }
 

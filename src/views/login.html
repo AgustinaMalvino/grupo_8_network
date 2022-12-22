@@ -4,9 +4,124 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Network | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/header-footer.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
-    
+    <body>
+        <header>
+            <section class="cabecera">
+                <a href="/"><img src="/images/logotipo-header.png" alt="Network - logotipo" id="logotipo-header"></a>
+                <p id="titulo-principal">Network</p>
+                <div class="mi-cuenta">
+                    <p>Mi cuenta</p>
+                    <i class="fas fa-user" alt="Imagen de perfil" id="imagen-perfil"></i>
+                </div>
+            </section>
+            <section class="informacion-cabecera">
+                <p>Estás en: <strong>Capital Federal</strong></p>
+                <div class="barra-busqueda">
+                    <form action="/find" method="post" class="buscador">
+                        <input type="search" name="busqueda" id="busqueda" placeholder="Buscá productos y servicios acá">
+                        <button type="submit" name="buscar" title="Buscar">
+                            <i class="fas fa-search" id="lupa"></i>
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </header>
+        <main>
+            <div class="main">
+            <label><h2>¡Inicia sesión para avanzar con tu pedido!</h2></label>
+                <form action="/" method="POST" class="login">
+                    <nav>
+                <li><div class="correo">
+                    <label>Correo eléctronico:</label>
+                    <input type="email" name="Correo eléctronico" required minlength="8">
+                </div></li>
+
+                <li><div class="contra">
+                    <label>Contraseña:</label>
+                    <input type="password" name="Contraseña" required>
+                </div></li>
+            
+                </nav>
+
+                <div class="botones">
+                <div class="boton-iniciar">
+                    <button type="submit">Iniciar sesión</button>
+                </div>
+
+                <div class="link-olvidaste">
+                    <a href="#">¿Olvistaste tu contraseña?</a>
+                </div>
+
+                <div class="link-registrate">
+                    <a href="register">Registrate con nosotros</a>
+                </div>
+                </div>
+
+                </form></div>
+        </main>
+        <footer>
+            <div class="logo-footer">
+                <a href="/"><img src="/images/logo-ligth.png" alt="Logotipo" id="logotipo-footer"></a>
+            </div>
+            <section class="informacion-footer">
+                <div class="contacto">
+                    <p>Contacto</p>
+                    <ul class="contacto-lista">
+                        <li>Ventas</li>
+                        <li>Atención al cliente</li>
+                        <li>Correo electrónico</li>
+                        <li>Chat (WhatsApp)</li>
+                    </ul>
+                </div>
+                <div class="planes">
+                    <p>Planes</p>
+                    <ul>
+                        <li>Combos</li>
+                        <li>Internet</li>
+                        <li>Cable</li>
+                        <li>Paquetes</li>
+                        <li>Aplicaciones</li>
+                    </ul>
+                </div>
+                <div class="redes-sociales">
+                    <p>Redes sociales</p>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>YouTube</li>
+                    </ul>
+                </div>
+                <div class="informacion-util">
+                    <p>Información útil</p>
+                    <ul>
+                        <li>Acerca de nosotros</li>
+                        <li>Términos y condiciones</li>
+                        <li>Solicitud de baja</li>
+                        <li>Botón de arrepentimiento</li>
+                        <li>Prestación Básica Universal (PBU)</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="comunicacion">
+                <div id="correo">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div id="llamar">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div id="chatear">
+                    <i class="fas fa-headset"></i>
+                </div>
+            </section>
+        </footer>
 </body>
 </html>
