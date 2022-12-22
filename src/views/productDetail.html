@@ -1,12 +1,255 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Network | Servicios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/header-footer.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/productDetail.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
-    
+    <header>
+        <section class="cabecera">
+            <a href="/"><img src="/images/logotipo-header.png" alt="Network - logotipo" id="logotipo-header"></a>
+            <p id="titulo-principal">Network</p>
+            <div class="compras-sesion" alt="Carrito" title="Carrito">
+                <a href="/productCart">
+                    <div class="carrito-compras">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                </a>
+                <a href="/login">
+                    <div class="inicio-sesion">
+                        <div class="mi-cuenta" title="Iniciar sesión">
+                            <p>Iniciar sesión</p>
+                            <i class="fas fa-user" alt="Imagen de perfil" id="imagen-perfil"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section class="informacion-cabecera">
+            <p>Estás en: <strong>Capital Federal</strong></p>
+            <div class="barra-busqueda">
+                <form action="/find" method="post" class="buscador">
+                    <input type="search" name="busqueda" id="busqueda" placeholder="Buscá productos y servicios acá">
+                    <button type="submit" name="buscar" title="Buscar">
+                        <i class="fas fa-search" id="lupa"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </header>
+    <main>
+        <h2>Armá tu paquete</h2>
+        <section class="cable">
+            <h3>Cable</h3>
+            <div class="servicio-seleccion-3">
+                <div class="bloque">
+                    <i class="fas fa-tv" alt="Cable"></i>
+                    <p>Cable clásico</p>
+                    <ul class="detalle-servicio">
+                        <li>64 canales</li>
+                        <li>Incluye 1 decodificador gratis</li>
+                        <li>Ideal para hogares de familia.</li>
+                    </ul>
+                </div>
+                <div class="bloque">
+                    <i class="fas fa-tv oro" alt="Cable"></i>
+                    <p>Cable HD</p>
+                    <ul class="detalle-servicio">
+                        <li>96 canales</li>
+                        <li>32 señales en HD</li>
+                        <li>Igual que el servicio clásico y mucho más.</li>
+                    </ul>
+                </div>
+                <div class="bloque anular">
+                    <i class="fas fa-ban"></i>
+                    <p>Anular</p>
+                </div>
+            </div>
+        </section>
+        <section class="internet">
+            <h3>Internet</h3>
+            <div class="servicio-seleccion-4">
+                <div class="bloque">
+                    <i class="fas fa-globe bronce" alt="Internet"></i>
+                    <p>50 MB</p>
+                    <ul class="detalle-servicio">
+                        <li>Ideal para el usuario estandar</li>
+                        <li>Idóneo para home office.</li>
+                    </ul>
+                </div>
+                <div class="bloque">
+                    <i class="fas fa-globe" alt="Internet"></i>
+                    <p>100 MB</p>
+                    <ul class="detalle-servicio">
+                        <li>Ideal para servicios de streaming</li>
+                        <li>Recomendado para varios usuario.</li>
+                    </ul>
+                </div>
+                <div class="bloque">
+                    <i class="fas fa-globe oro" alt="Internet"></i>
+                    <p>300 MB</p>
+                    <ul class="detalle-servicio">
+                        <li>Ideal para el gaming</li>
+                        <li>Perfecto para múltiples dispositivos.</li>
+                    </ul>
+                </div>
+                <div class="bloque anular">
+                    <i class="fas fa-ban"></i>
+                    <p>Anular</p>
+                </div>
+            </div>
+        </section>
+        <section class="paquetes">
+            <h3>Paquetes</h3>
+            <div class="servicio-seleccion-5">
+                <div class="bloque">
+                    <figure class="logo-servicio">
+                        <img src="/images/Paramount_logo.svg" alt="Paramount - logo">
+                    </figure>
+                    <p>Paramount Plus</p>
+                    <ul class="detalle-servicio">
+                        <li>3 meses gratis para nuevos clientes</li>
+                        <li>Precio final: $599/mes.</li>
+                    </ul>
+                </div>
+                <div class="bloque">
+                    <figure class="logo-servicio">
+                        <img src="/images/Star+_logo.svg" alt="Star+ - logo">
+                    </figure>
+                    <p>Star+</p>
+                    <ul class="detalle-servicio">
+                        <li>3 meses gratis para nuevos clientes</li>
+                        <li>Incluye Disney+</li>
+                        <li>Precio final: $499/mes.</li>
+                    </ul>
+                </div>
+                <div class="bloque">
+                    <figure class="logo-servicio">
+                        <img src="/images/Disney+_logo.svg" alt="Disney Plus - logo">
+                    </figure>
+                    <p>Disney+</p>
+                    <ul class="detalle-servicio">
+                        <li>3 meses gratis para nuevos clientes</li>
+                        <li>Incluye Star+</li>
+                        <li>Precio final: $499/mes.</li>
+                    </ul>
+                </div>
+                <div class="bloque">
+                    <figure class="logo-servicio">
+                        <img src="/images/HBO_Max_logo.svg" alt="HBO Max - logo">
+                    </figure>
+                    <p>HBO MAX</p>
+                    <ul class="detalle-servicio">
+                        <li>3 meses gratis para nuevos clientes</li>
+                        <li>3 meses más con 50% de descuento</li>
+                        <li>Precio final: $799/mes.</li>
+                    </ul>
+                </div>
+                <div class="bloque anular">
+                    <i class="fas fa-ban"></i>
+                    <p>Anular</p>
+                </div>
+            </div>
+        </section>
+        <section class="aplicaciones">
+            <h3>Aplicaciones</h3>
+            <div class="servicio-seleccion-4">
+                <div class="bloque">
+                    <img src="/images/Netflix_icon.svg" alt="Netflix - icono">
+                    <p>Netflix</p>
+                    <ul class="detalle-servicio">
+                        <li>Series y películas en una sola app</li>
+                        <li>Precio final: $1599/mes.</li>
+                    </ul>
+                </div>
+                <div class="bloque">
+                    <img src="/images/YouTube_icon.svg" alt="YouTube - icono">
+                    <p>YouTube</p>
+                    <ul class="detalle-servicio">
+                        <li>Mirá videos sin anuncios</li>
+                        <li>Precio final: $1099/mes.</li>
+                    </ul>
+                </div>
+                <div class="bloque">
+                    <img src="/images/Spotify_icon.svg" alt="Spotify - icono">
+                    <p>Spotify</p>
+                    <ul class="detalle-servicio">
+                        <li>Armá tu playlist musical con esta app</li>
+                        <li>Precio final: $399/mes.</li>
+                    </ul>
+                </div>
+                <div class="bloque anular">
+                    <i class="fas fa-ban"></i>
+                    <p>Anular</p>
+                </div>
+            </div>
+        </section>
+        <div>
+            <a href="/productCart" id="servicio-a-contratar">Haz click aquí para ver tus servicios a contratar</a>
+        </div>
+    </main>
+    <footer>
+        <div class="logo-footer">
+            <a href="/"><img src="/images/logo-ligth.png" alt="Logotipo" id="logotipo-footer"></a>
+        </div>
+        <section class="informacion-footer">
+            <div class="contacto">
+                <p>Contacto</p>
+                <ul class="contacto-lista">
+                    <li>Ventas</li>
+                    <li>Atención al cliente</li>
+                    <li>Correo electrónico</li>
+                    <li>Chat (WhatsApp)</li>
+                </ul>
+            </div>
+            <div class="planes">
+                <p>Planes</p>
+                <ul>
+                    <li>Combos</li>
+                    <li>Internet</li>
+                    <li>Cable</li>
+                    <li>Paquetes</li>
+                    <li>Aplicaciones</li>
+                </ul>
+            </div>
+            <div class="redes-sociales">
+                <p>Redes sociales</p>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                    <li>YouTube</li>
+                </ul>
+            </div>
+            <div class="informacion-util">
+                <p>Información útil</p>
+                <ul>
+                    <li>Acerca de nosotros</li>
+                    <li>Términos y condiciones</li>
+                    <li>Solicitud de baja</li>
+                    <li>Botón de arrepentimiento</li>
+                    <li>Prestación Básica Universal (PBU)</li>
+                </ul>
+            </div>
+        </section>
+        <section class="comunicacion">
+            <div id="correo">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div id="llamar">
+                <i class="fas fa-phone-alt"></i>
+            </div>
+            <div id="chatear">
+                <i class="fas fa-headset"></i>
+            </div>
+        </section>
+    </footer>
 </body>
 </html>

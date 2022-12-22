@@ -17,10 +17,12 @@ Marigold: #F1A208
     font-weight: bold;
 }
 
+/*
 header {
     display: flex;
     align-items: center;
 }
+*/
 
 body > ul > li {
     font-size: 15px;   
@@ -172,10 +174,12 @@ body {
         width: 80%;
     }
     
+    /*
     header {
         display: flex;
         align-items: center;
     }
+    */
     
     header > ul > li {
         font-size: 20px;

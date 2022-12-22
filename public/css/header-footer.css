@@ -9,7 +9,7 @@
 }
 
 #titulo-principal{
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 #imagen-perfil{
@@ -34,15 +34,26 @@
     position: relative;
 }
 
-.inicio-sesion{
+.compras-sesion{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+}
+
+.inicio-sesion, .carrito-compras{
     padding: 0.5rem;
     border-radius: 10px;
     background: linear-gradient(to top right, #005377, #06A77D);
     color: #FFF;
+    width: max-content;
 }
 
-.inicio-sesion:hover{
+.inicio-sesion:hover, .carrito-compras:hover{
     background: linear-gradient(to bottom left, #005377, #06A77D);
+}
+
+.carrito-compras{
+    font-size: 5vw;
 }
 
 .mi-cuenta{
@@ -52,7 +63,6 @@
     gap: 10px;
     font-size: 0.75rem;
 }
-
 
 .informacion-cabecera{
     display: flex;
@@ -220,6 +230,9 @@ footer ul, footer ul li{
         width: 20vw;
     }
 
+    .carrito-compras{
+        font-size: 3.6vw;
+    }
 
     .informacion-footer{
         display: flex;
