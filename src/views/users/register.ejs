@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network | Registro</title>
+    <%- include("../partials/head") %>
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+<body>
+    <header>
+        <%- include("../partials/header") %>
+    </header>
+    <main>
+        <div class="main">
+        <label><h2>¡Registrate con nosotros para avanzar con el pedido!</h2></label>
+        <form action="/" method="POST" class="register">
+            <nav>
+                <ul class="nav-izq-der">
+                <li><div class = 'nombre'>
+                    <label>Nombre:</label>
+                    <input type="text" name="Nombre y apellido" required minlength="2">
+                </div></li>
+
+                <li><div class="apellido">
+                    <label>Apellido:</label>
+                    <input type="text" name="Nombre y apellido" required minlength="2">
+                </div></li>
+                
+                <li><div class = 'dom'>
+                    <label>Domicilio:</label>
+                    <input type="text" name="Domicilio" required minlength="3">  
+                </div></li>
+
+                <li><div class="correo">
+                    <label>Correo eléctronico:</label>
+                    <input type="email" name="Correo eléctronico" required minlength="8">
+                </div></li>
+
+                <li><div class = 'tel'>
+                    <label>Teléfono:</label>
+                    <input type="tel" name="Teléfono" required length="10">
+                </div></li>
+                </ul>
+
+                <ul class="nav-izq-der">
+                <li><div class ='dni'>    
+                    <label>DNI:</label>
+                    <input type="text" name="DNI" required minlength="7">
+                </div></li>
+                
+
+                <li><div class="fecha">
+                <label>Fecha de nacimiento:</label>
+                <input type="date" id="fecha-nacimiento" required>
+                </div></li>
+
+                <li><div class="sexo">
+                    <label>Sexo:</label>
+                        <select name="sexo" id="sexo"  required>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="X">X</option>
+                        </select>
+                </div></li>
+
+                <li><div class="contra">
+                    <label>Contraseña:</label>
+                    <input type="password" name="Contraseña" required>
+                </div></li>
+
+                <li><div class="confir-contra">
+                    <label>Confirmar contraseña:</label>
+                    <input type="password" name="Confirmar contraseña" required>
+                </div></li>
+                </ul>
+            </nav>
+
+                <div class="condiciones">
+                    <label for="condiciones">Acepto las condiciones</label>
+                    <input type="checkbox" name="condiciones">
+                </div>
+
+                <div class = 'notificacion'>
+                    <label for="notificaciones">Acepto recibir notificaciones de actualizaciones y promociones a mi correo</label>
+                    <input type="checkbox" name="notificaciones">                    
+                </div>
+
+                <div class="botones">
+                <div class="boton">
+                    <button type="submit">Registrarse</button>
+                </div>
+
+                <div class="boton-borrar">
+                    <button type="reset"> Borrar</button>
+                </div>
+                </div>
+                </div>
+        </form>
+    </div>
+    </div>
+    </main>
+    <footer>
+        <%- include("../partials/footer") %>
+    </footer>
+</body>
+</html>

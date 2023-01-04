@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network | Inicio</title>
+    <%- include("partials/head") %>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <header>
+        <%- include("partials/header") %>
+    </header>
+    <main>
+        <section class="banner-slider">
+            <a href="/productDetail">
+                <div id="armar-combo">
+                <p>Armá tu combo</p>
+            </div>
+            </a>
+        </section>
+        <section class="servicios">
+            <div class="combos">
+                <i class="fas fa-mail-bulk" alt="Combos"></i>
+                <p class="bloques-de-servicios">Combos</p>
+            </div>
+            <div class="combos">
+                <i class="fas fa-globe" alt="Internet"></i>
+                <p class="bloques-de-servicios">Internet</p>
+            </div>
+            <div class="combos">
+                <i class="fas fa-tv" alt="Cable"></i>
+                <p class="bloques-de-servicios">Cable</p>
+            </div>
+            <div class="combos">
+                <i class="fas fa-box-open" alt="Paquetes"></i>
+                <p class="bloques-de-servicios">Paquetes</p>
+            </div>
+            <div class="combos">
+                <i class="fas fa-mobile-alt" alt="Aplicaciones"></i>
+                <p class="bloques-de-servicios">Aplicaciones</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <%- include("partials/footer") %>
+    </footer>
+</body>
+</html>

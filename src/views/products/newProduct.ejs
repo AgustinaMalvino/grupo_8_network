@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir nuevo producto</title>
+    <%- include("../partials/head") %>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <header>
+        <%- include("../partials/header") %>
+    </header>
+        <main>
+            <div class="main">
+            <label><h2>Completa el siguiente formulario para agregar un nuevo producto/servicio a su sitio</h2></label>
+                <form action="/" method="POST" class="login">
+                    <nav>
+                <li><div class="correo">
+                    <label>Seleccione o suba una imagen/ícono que identifique al producto:</label>
+                    <input type="file" name="nombre-producto">
+                </div></li>
+                <li><div class="correo">
+                    <label>Escriba el nombre del producto:</label>
+                    <input type="text" name="nombre-producto">
+                </div></li>
+
+                <li><div class="contra">
+                    <label>Escriba una descripción acerca del producto:</label>
+                    <textarea name="descripcion-producto" id="descripcion-producto" cols="30" rows="10" required></textarea>
+                </div></li>
+                <li><div class="contra">
+                    <label>Seleccione la categoria del producto:</label>
+                    <select name="categoria" id="categoria" required>
+                        <option value="cable">Cable</option>
+                        <option value="internet">Internet</option>
+                        <option value="paquetes">Paquetes</option>
+                        <option value="aplicaciones">Aplicaciones</option>
+                    </select>
+                </div></li>
+                <li><div class="contra">
+                    <label>Escriba el precio del producto:</label>
+                    <input type="number" name="precio">
+                </div></li>
+                <li><div class="contra">
+                    <p>¿El nuevo producto va a tener descuento?:</p>
+                    <label>Si</label>
+                    <input type="radio" name="yes" id="yes">
+                    <label>No</label>
+                    <input type="radio" name="no" id="no">
+                </div></li>
+            
+                </nav>
+
+                <div class="botones">
+                <div class="boton-iniciar">
+                    <button type="submit">Añadir producto</button>
+                </div>
+
+                <div class="link-olvidaste">
+                    <a href="#">Cancelar entrada</a>
+                </div>
+
+                </form></div>
+        </main>
+        <footer>
+        <%- include("../partials/footer") %>
+    </footer>
+</body>
+</html>
