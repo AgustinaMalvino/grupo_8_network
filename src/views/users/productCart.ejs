@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("../partials/head", {cssSheet: "productCart", title: "Carrito de compras"}) %>
+</head>
+<body>
+    <header>
+        <%- include("../partials/header") %>
+    </header>
+    <main>
+        <div class="servicio">Tu servicio a contratar es:</div>
+    <a href="/detallesdelproducto">
+        <input type="submit" value="Editar pedido" class="editarpedido">
+    </a>
+    <ul>
+        <li>Producto 1</li>
+        <li>Producto 2</li>
+        <li>Producto 3</li>
+    </ul>
+    <div class="detalles">Detalles del servicio:</div>
+    <ul>
+        <li>Detalle del producto 1</li>
+        <li>Detalle del producto 2</li>
+        <li>Detalle del producto 3</li>
+    </ul>
+    <div class="datosdeinstalacion">
+        <div class="domicilio">Domicilio de instalacion:
+            <input class="calle" type="text" name="domicilio" id="domicilio" require: minlength="8">
+        </div>
+        <div class="diayhora">Dia y hora de instalacion:
+            <input class="fecha" type="datetime-local" name="fechadeinst" id="fechadeinst"  require: min="08:00" max="18:00">
+        </div>
+    </div>
+    <div class="datosdecontacto">
+        <div class="contacto">Datos de contacto:
+            <div class="emailycelular">
+                <input class="email" type="text" name="email" id="email" placeholder="email" require: email>
+                <input class="celular" type="text" name="celular" id="celular" placeholder="celular" require: tel>
+            </div>
+<!--             <a href="/detallesdelproducto">
+                <div class="corregirbotoneditardatos"></div>
+                <input type="submit" value="Editar datos" class="editardatos">
+            </a> -->
+        </div>
+    <div class="botonescancelaryconfirmar">
+        <a href="/">
+            <input type="submit" value="Cancelar pedido" class="cancelarpedido">
+        </a>
+        <a href="/">
+            <input type="submit" value="Confirmar pedido" class="confirmarpedido">
+        </a>
+    </div>
+</main>
+<footer>
+        <%- include("../partials/footer") %>
+</footer>
+</body>
+</html>

@@ -1,0 +1,104 @@
+@import url(/public/css/styles.css);
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+h1{
+    text-align: center;
+    color: var(--negro);
+}
+
+.seccion-formulario{
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+}
+
+#nombre-producto, #precio, #descuento{
+    border: solid 2px;
+    text-align: center;
+    border-radius: 10px;
+    border-color: var(--negro);
+    padding: 2px;
+    width: 25%;
+}
+
+textarea{
+    border: solid 2px;
+    border-radius: 10px;
+    border-color: var(--negro);
+    padding: 2px;
+}
+
+#categoria{
+    border-radius: 10px;
+    border: solid var(--negro) 2px;
+    text-align: center;
+    padding: 2px;
+}
+
+.botones{
+    display: flex;
+    justify-content:center;
+    color: var(--negro);
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+
+.boton-guardar {
+    width: 50%;
+    margin: 1rem 0;
+}
+
+.boton-guardar button{
+    width: 100%;
+    padding: 9px;
+    border-radius: 10px;
+    background: linear-gradient(to top right, #005377, #06A77D);
+    color: #fff;
+    font-size: xx-large;
+}
+
+.boton-guardar:hover button{
+    background: linear-gradient(to bottom left, #005377, #06A77D);
+    cursor: pointer;
+}
+
+.botones a{
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    text-align: center;
+}
+
+label{
+    color: var(--negro);
+    padding-right: 0.5rem;
+}
+
+.opciones-radio{
+    padding-right: 2rem;
+}
+
+.seccion-formulario p{
+    padding-right: 0.5rem;
+}
+
+/* compu */
+@media (min-width:860px){
+    .boton-iniciar button{
+        padding: 10px;
+        font-size: 17.5px;
+        margin-top: 6px;
+    }
+
+    h2{
+        font-size: 45px;
+    }
+}
