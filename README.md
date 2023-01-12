@@ -22,9 +22,7 @@ Para realizar este trabajo, hemos seleccionado los siguientes sitios web que nos
 Los sitios fueron elegidos porque comercializan los mismos servicios que nosotros queremos ofrecer.
 
 ## Colaboradores
-El grupo de trabajo estará compuesto por 5 integrantes: *Agustina Malvino*, *Belén López*, *Federico Diganchi*, y *Leonardo Froidevaux*.
-### Belén López
-Mi nombre es *Belén López*, en la actualidad además del curso, me encuentro cursando una Licenciatura en Comunicación y trabajo en un Call Center que se dedica a la comercialización de servicios de cable, internet y telefonía fija y móvil.
+El grupo de trabajo estará compuesto por 5 integrantes: *Agustina Malvino*, *Federico Diganchi*, y *Leonardo Froidevaux*.
 ### Agustina Malvino
 Mi nombre es *Agustina Malvino*, y yo actualmente estoy cursando una Tecnicatura en Administración de Empresas y trabajo en el mismo Call Center que Belen.
 ### Leonardo Froidevaux
