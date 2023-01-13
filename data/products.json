@@ -1,0 +1,97 @@
+[{
+    "id": 1,
+    "name": "non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede",
+    "description": "parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque",
+    "image": "https://robohash.org/velitutrem.png?size=50x50&set=set1",
+    "category": "Aplicaciones",
+    "price": 1396,
+    "discount": 17
+  }, {
+    "id": 2,
+    "name": "donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus",
+    "description": "diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget",
+    "image": "https://robohash.org/totamipsamodio.png?size=50x50&set=set1",
+    "category": "Aplicaciones",
+    "price": 5049,
+    "discount": 21
+  }, {
+    "id": 3,
+    "name": "fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id",
+    "description": "faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan",
+    "image": "https://robohash.org/culpadoloresiusto.png?size=50x50&set=set1",
+    "category": "Paquetes",
+    "price": 4553,
+    "discount": 14
+  }, {
+    "id": 4,
+    "name": "quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue",
+    "description": "convallis nunc proin at turpis a pede posuere nonummy integer non velit",
+    "image": "https://robohash.org/eosplaceatut.png?size=50x50&set=set1",
+    "category": "Cable",
+    "price": 3835,
+    "discount": 28
+  }, {
+    "id": 5,
+    "name": "platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius",
+    "description": "eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices",
+    "image": "https://robohash.org/natusoditest.png?size=50x50&set=set1",
+    "category": "Aplicaciones",
+    "price": 4195,
+    "discount": 23
+  }, {
+    "id": 6,
+    "name": "pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus",
+    "description": "ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices",
+    "image": "https://robohash.org/aliquamvoluptatemcorrupti.png?size=50x50&set=set1",
+    "category": "Paquetes",
+    "price": 3910,
+    "discount": 21
+  }, {
+    "id": 7,
+    "name": "sem fusce consequat nulla nisl nunc nisl duis bibendum felis",
+    "description": "libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu",
+    "image": "https://robohash.org/quisutad.png?size=50x50&set=set1",
+    "category": "Internet",
+    "price": 2053,
+    "discount": 20
+  }, {
+    "id": 8,
+    "name": "curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at",
+    "description": "vel dapibus at diam nam tristique",
+    "image": "https://robohash.org/velitconsequatursimilique.png?size=50x50&set=set1",
+    "category": "Internet",
+    "price": 1761,
+    "discount": 24
+  }, {
+    "id": 9,
+    "name": "volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam",
+    "description": "erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio",
+    "image": "https://robohash.org/explicaboilloharum.png?size=50x50&set=set1",
+    "category": "Aplicaciones",
+    "price": 5323,
+    "discount": 21
+  }, {
+    "id": 10,
+    "name": "tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec",
+    "description": "natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque",
+    "image": "https://robohash.org/exercitationemnonquia.png?size=50x50&set=set1",
+    "category": "Paquetes",
+    "price": 3657,
+    "discount": 18
+  }, {
+    "id": 11,
+    "name": "consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc",
+    "description": "eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla",
+    "image": "https://robohash.org/errorsuntid.png?size=50x50&set=set1",
+    "category": "Internet",
+    "price": 1670,
+    "discount": 21
+  }, {
+    "id": 12,
+    "name": "habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut",
+    "description": "diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac",
+    "image": "https://robohash.org/laborumverosuscipit.png?size=50x50&set=set1",
+    "category": "Paquetes",
+    "price": 5420,
+    "discount": 29
+  }]

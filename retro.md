@@ -3,7 +3,7 @@ Emplearemos el metodo de la estrella de mar:
 Retrospectiva del Sprint 1.
 1- Comenzar a hacer: Utilizar Trello y aumentar la cantidad de reuniones via meet con el equipo.
 2- Hacer más: Realizar más bocetos para la versión móvil.
-3- Continuar haciendo: Hacer las mismas cantidad de commits por cada integrante.
+3- Continuar haciendo: la mismas cantidad de commits por cada integrante.
 4- Hacer menos: Investigaciones sobre los competidores de nuestro e-commerce.
 5- Dejar de hacer: no comunicar a los docentes sobre los avances del proyecto.
 
@@ -13,3 +13,10 @@ Retrospectiva del Sprint 2.
 3- Continuar haciendo: reuniones una vez por semana con el equipo.
 4- Hacer menos: problema cada vez que un integrante decide abandonar el equipo.
 5- Dejar de hacer: cambiar el diseño inicial de nuestras vistas.
+
+Retrospectiva del Sprint 3.
+1- Comenzar a hacer: mas eficientes nuestros archivos ejs.
+2- Hacer más: 
+3- Continuar haciendo: las daily meetings 
+4- Hacer menos: 
+5- Dejar de hacer: 
