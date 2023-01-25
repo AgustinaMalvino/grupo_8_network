@@ -16,7 +16,9 @@ Retrospectiva del Sprint 2.
 
 Retrospectiva del Sprint 3.
 1- Comenzar a hacer: mas eficientes nuestros archivos ejs.
-2- Hacer más: 
+2- Hacer más: vistas dinamicas
 3- Continuar haciendo: las daily meetings 
-4- Hacer menos: 
-5- Dejar de hacer: 
+4- Hacer menos: archivos 
+5- Dejar de hacer: lineas de codigo repetidas
+
+
