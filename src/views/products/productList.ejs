@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("../partials/head", {cssSheet: "productList" , title: "Servicios" }) %>
+</head>
+<body>
+    <header>
+        <%- include("../partials/header") %>
+    </header>
+    <main>
+        <h2>Armá tu paquete</h2>
+        <section class="cable">
+            <h3>Cable</h3>
+            <div class="servicio-seleccion">
+                <% cable.forEach(producto => { %>
+                <div class='bloque'>
+                    <%- producto.image %>
+                    <p><%= producto.name %></p>
+                    <ul class="detalle-servicio">
+                        <%- producto.description %>
+                        <a href="/<%= producto.id %>/edit">
+                        <div class="modificar">
+                            <p>Modificar servicio</p>
+                        </div>
+                        </a>
+                        <a href="/<%= producto.id %>/delete">
+                            <div class="eliminar">
+                                <p>Eliminar servicio</p>
+                            </div>
+                        </a>
+                    </ul>
+                </div>
+                <% }) %>
+                <div class="bloque anular">
+                    <i class="fas fa-ban"></i>
+                    <p>Anular</p>
+                </div>
+            </div>
+        </section>
+        <section class="internet">
+            <h3>Internet</h3>
+            <div class="servicio-seleccion">
+                <% internet.forEach(producto => { %>
+                <div class='bloque'>
+                    <%- producto.image %>
+                    <p><%= producto.name %></p>
+                    <ul class="detalle-servicio">
+                        <%- producto.description %>
+                        <a href="/<%= producto.id %>/edit">
+                        <div class="modificar">
+                            <p>Modificar servicio</p>
+                        </div>
+                        </a>
+                        <a href="/<%= producto.id %>/delete">
+                            <div class="eliminar">
+                                <p>Eliminar servicio</p>
+                            </div>
+                        </a>
+                    </ul>
+                </div>
+                <% }) %>
+                <div class="bloque anular">
+                    <i class="fas fa-ban"></i>
+                    <p>Anular</p>
+                </div>
+            </div>
+        </section>
+        <section class="paquetes">
+            <h3>Paquetes</h3>
+            <div class="servicio-seleccion">
+                <% paquetes.forEach(producto => { %>
+                <div class='bloque'>
+                    <figure class="logo-servicio">
+                        <img src="/images/<%= producto.image %>" alt="<%= producto.name %>">
+                    </figure>
+                    <p><%= producto.name %></p>
+                    <ul class="detalle-servicio">
+                        <%- producto.description %>
+                        <a href="/<%= producto.id %>/edit">
+                        <div class="modificar">
+                            <p>Modificar servicio</p>
+                        </div>
+                        </a>
+                        <a href="/<%= producto.id %>/delete">
+                            <div class="eliminar">
+                                <p>Eliminar servicio</p>
+                            </div>
+                        </a>
+                    </ul>
+                </div>
+                <% }) %>
+                <div class="bloque anular">
+                    <i class="fas fa-ban"></i>
+                    <p>Anular</p>
+                </div>
+            </div>
+        </section>
+        <section class="aplicaciones">
+            <h3>Aplicaciones</h3>
+            <div class="servicio-seleccion">
+                <% aplicaciones.forEach(producto => { %>
+                <div class='bloque'>
+                    <img src="/images/<%= producto.image %>" alt="<%= producto.name %>">
+                    <p><%= producto.name %></p>
+                    <ul class="detalle-servicio">
+                        <%- producto.description %>
+                        <a href="/<%= producto.id %>/edit">
+                        <div class="modificar">
+                            <p>Modificar servicio</p>
+                        </div>
+                        </a>
+                        <a href="/<%= producto.id %>/delete">
+                            <div class="eliminar">
+                                <p>Eliminar servicio</p>
+                            </div>
+                        </a>
+                    </ul>
+                </div>
+                <% }) %>
+                <div class="bloque anular">
+                    <i class="fas fa-ban"></i>
+                    <p>Anular</p>
+                </div>
+            </div>
+        </section>
+        <div>
+            <a href="/productCart" id="servicio-a-contratar">Haz click aquí para ver tus servicios a contratar</a>
+        </div>
+    </main>
+    <footer>
+        <%- include("../partials/footer") %>
+    </footer>
+</body>
+</html>

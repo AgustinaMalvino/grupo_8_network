@@ -1,0 +1,109 @@
+[{
+    "id": 1,
+    "name": "Cable clásico",
+    "description": "<li>64 canales</li><li>Incluye 1 decodificador gratis</li><li>Ideal para hogares de familia.</li>",
+    "image": "<i class='fas fa-tv' alt='Cable'></i>",
+    "category": "Cable",
+    "price": 1499,
+    "offer": true,
+    "discount": 10
+  }, {
+    "id": 2,
+    "name": "Cable HD",
+    "description": "<li>96 canales</li><li>32 señales en HD</li><li>Igual que el servicio clásico y mucho más.</li>",
+    "image": "<i class='fas fa-tv oro' alt='Cable'></i>",
+    "category": "Cable",
+    "price": 1999,
+    "offer": true,
+    "discount": 15
+  }, {
+    "id": 3,
+    "name": "50 MB",
+    "description": "<li>Ideal para el usuario estandar</li><li>Idóneo para home office.</li>",
+    "image": "<i class='fas fa-globe bronce' alt='Internet'></i>",
+    "category": "Internet",
+    "price": 1499,
+    "offer": true,
+    "discount": 9
+  }, {
+    "id": 4,
+    "name": "100 MB",
+    "description": "<li>Ideal para servicios de streaming</li><li>Recomendado para varios usuario.</li>",
+    "image": "<i class='fas fa-globe' alt='Internet'></i>",
+    "category": "Internet",
+    "price": 2199,
+    "offer": true,
+    "discount": 10
+  }, {
+    "id": 5,
+    "name": "300 MB",
+    "description": "<li>Ideal para el gaming</li><li>Perfecto para múltiples dispositivos.</li>",
+    "image": "<i class='fas fa-globe oro' alt='Internet'></i>",
+    "category": "Internet",
+    "price": 2799,
+    "offer": true,
+    "discount": 13
+  }, {
+    "id": 6,
+    "name": "Paramount Plus",
+    "description": "<li>3 meses gratis para nuevos clientes</li><li>Precio final: $599/mes.</li>",
+    "image": "Paramount_logo.svg",
+    "category": "Paquetes",
+    "price": 599,
+    "offer": false,
+    "discount": 0
+  }, {
+    "id": 7,
+    "name": "Star+",
+    "description": "<li>3 meses gratis para nuevos clientes</li><li>Incluye Disney+</li><li>Precio final: $499/mes.</li>",
+    "image": "Star+_logo.svg",
+    "category": "Paquetes",
+    "price": 499,
+    "offer": false,
+    "discount": 0
+  }, {
+    "id": 8,
+    "name": "Disney+",
+    "description": "<li>3 meses gratis para nuevos clientes</li><li>Incluye Star+</li><li>Precio final: $499/mes.</li>",
+    "image": "Disney+_logo.svg",
+    "category": "Paquetes",
+    "price": 499,
+    "offer": false,
+    "discount": 0
+  }, {
+    "id": 9,
+    "name": "HBO MAX",
+    "description": "<li>3 meses gratis para nuevos clientes</li><li>3 meses más con 50% de descuento</li><li>Precio final: $799/mes.</li>",
+    "image": "HBO_Max_logo.svg",
+    "category": "Paquetes",
+    "price": 799,
+    "offer": false,
+    "discount": 0
+  }, {
+    "id": 10,
+    "name": "Netflix",
+    "description": "<li>Series y películas en una sola app</li><li>Precio final: $1599/mes.</li>",
+    "image": "Netflix_icon.svg",
+    "category": "Aplicaciones",
+    "price": 1599,
+    "offer": false,
+    "discount": 0
+  }, {
+    "id": 11,
+    "name": "YouTube",
+    "description": "<li>Mirá videos sin anuncios</li><li>Precio final: $1099/mes.</li>",
+    "image": "YouTube_icon.svg",
+    "category": "Aplicaciones",
+    "price": 1099,
+    "offer": false,
+    "discount": 0
+  }, {
+    "id": 12,
+    "name": "Spotify",
+    "description": "<li>Armá tu playlist musical con esta app</li><li>Precio final: $399/mes.</li>",
+    "image": "Spotify_icon.svg",
+    "category": "Aplicaciones",
+    "price": 399,
+    "offer": false,
+    "discount": 0
+  }]

@@ -88,7 +88,19 @@ main h3{
     border-radius: 10px;
     background-color: var(--amarillo);
     text-align: center;
+    margin: 10px 0;
 }
+
+.eliminar{
+    border-radius: 10px;
+    background-color: #e91e63;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.modificar p, .eliminar p {
+    padding: 0;
+    }
 
 #servicio-a-contratar{
     font-size: large;
@@ -98,7 +110,7 @@ main h3{
 
 /* CAJA DE LOS SERVICIOS */
 
-.servicio-seleccion-3, .servicio-seleccion-4, .servicio-seleccion-5{
+.servicio-seleccion{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -165,6 +177,10 @@ main h3{
         width: 17vw;
         height: 17vw;
     }
+
+    .modificar p {
+    font-size: 1vw;
+    }
     
     .anular:hover{
         background: linear-gradient(to bottom left, #f44336, #e91e63);
@@ -190,10 +206,6 @@ main h3{
 
     .detalle-servicio{
         font-size: 1.5vw;
-    }
-
-    .servicio-seleccion-3{
-        justify-content: space-evenly;
     }
 
     .bloque figure{

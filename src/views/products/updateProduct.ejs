@@ -14,18 +14,18 @@
     </header>
     <main>
         <h1>Modifique el siguiente formulario del producto/servicio seleccionado</h1>
-        <form action="/" method="POST">
+        <form action="/<%= servicioFiltrado.id%>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="seccion-formulario">
                 <label>Seleccione o suba una imagen/ícono que identifique al producto:</label>
-                <input type="file" name="imagen-producto">
+                <input type="file" name="image">
             </div>
             <div class="seccion-formulario">
                 <label>Nuevo nombre del producto:</label>
-                <input type="text" name="nombre-producto" id="nombre-producto">
+                <input type="text" name="name" id="nombre-producto" value="<%= servicioFiltrado.name%>" required>
             </div>
             <div class="seccion-formulario">
                 <label>Nueva descripción acerca del producto:</label>
-                <textarea name="descripcion-producto" id="descripcion-producto" cols="50" rows="2" required></textarea>
+                <textarea name="descripcion-producto" id="descripcion-producto" cols="50" rows="2" required> value="<%= servicioFiltrado.description%>"</textarea>
             </div>
             <div class="seccion-formulario">
                 <label>Seleccione la categoria del producto:</label>
@@ -38,20 +38,20 @@
             </div>
             <div class="seccion-formulario">
                 <label>Escriba nuevo precio del producto:</label>
-                <input type="number" name="precio" id="precio">
+                <input type="number" name="precio" id="precio" required value="<%= servicioFiltrado.price%>">
             </div>
             <div class="seccion-formulario">
                 <p>¿Quiere agregar un descuento al producto?:</p>
                 <div class="opciones-radio">
                     <label>Si</label>
-                    <input type="radio" name="yes" id="yes">
+                    <input type="radio" name="true" id="true">
                 </div>
-                <div class="opciones-radio"></div>
+                <div class="opciones-radio">
                     <label>No</label>
-                    <input type="radio" name="no" id="no">
+                    <input type="radio" name="false" id="false">
                 </div>
                 <label>Escriba porcentaje del descuento:</label>
-                <input type="number" name="descuento" id="descuento">
+                <input type="number" name="descuento" id="descuento" max="100" value="<%= servicioFiltrado.discount%>">
             </div>
             <div class="botones">
                 <div class="boton-guardar">

@@ -14,22 +14,22 @@
     </header>
     <main>
         <h1>Completa el siguiente formulario para agregar un nuevo producto/servicio a su sitio</h1>
-        <form action="/" method="POST">
+        <form action="/newProduct" method="POST" enctype="multipart/form-data">
             <div class="seccion-formulario">
                 <label>Seleccione o suba una imagen/ícono que identifique al producto:</label>
-                <input type="file" name="imagen-producto">
+                <input type="file" name="image">
             </div>
             <div class="seccion-formulario">
                 <label>Escriba el nombre del producto:</label>
-                <input type="text" name="nombre-producto" id="nombre-producto">
+                <input type="text" name="nombre" id="nombre-producto">
             </div>
             <div class="seccion-formulario">
                 <label>Escriba una descripción acerca del producto:</label>
-                <textarea name="descripcion-producto" id="descripcion-producto" cols="50" rows="2" required></textarea>
+                <textarea name="description" id="descripcion-producto" cols="50" rows="2" required></textarea>
             </div>
             <div class="seccion-formulario">
                 <label>Seleccione la categoria del producto:</label>
-                <select name="categoria" id="categoria" required>
+                <select name="category" id="categoria" required>
                     <option value="cable">Cable</option>
                     <option value="internet">Internet</option>
                     <option value="paquetes">Paquetes</option>
@@ -38,7 +38,7 @@
             </div>
             <div class="seccion-formulario">
                 <label>Escriba el precio del producto:</label>
-                <input type="number" name="precio" id="precio">
+                <input type="number" name="price" id="precio">
             </div>
             <div class="seccion-formulario">
                 <p>¿El nuevo producto va a tener descuento?:</p>
@@ -51,7 +51,7 @@
                     <input type="radio" name="no" id="no">
                 </div>
                 <label>Escriba porcentaje del descuento:</label>
-                <input type="number" name="descuento" id="descuento">
+                <input type="number" name="discount" id="descuento">
             </div>
             <div class="botones">
                 <div class="boton-guardar">
