@@ -21,6 +21,6 @@ console.log("Servidor corriendo en http://localhost:" + port)
 );
 
 app.use('/', rutaIndex);
-app.use(rutaLogin);
+app.use('/login', rutaLogin);
 app.use('/register', rutaRegister);
 app.use(rutaProduct);
