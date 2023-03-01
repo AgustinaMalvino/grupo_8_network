@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const methodOverride = require('method-override');
+const session = require('express-session');
 
 app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, "views"));
@@ -24,3 +25,4 @@ app.use('/', rutaIndex);
 app.use('/login', rutaLogin);
 app.use('/register', rutaRegister);
 app.use(rutaProduct);
+app.use(session({secret: 'nuestro mensaje secreto'}));
