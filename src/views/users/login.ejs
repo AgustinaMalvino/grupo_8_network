@@ -13,24 +13,32 @@
         <main>
             <div class="main">
             <label><h2>¡Inicia sesión para avanzar con tu pedido!</h2></label>
-                <form action="/" method="POST" class="login">
+                <form action="/login" method="post" class="login">
                     <nav>
                 <li><div class="correo">
                     <label>Correo eléctronico:</label>
-                    <input type="email" name="Correo eléctronico" required minlength="8">
+                    <input type="email" name="email" required minlength="8" value="<%= typeof old != 'undefined' ? old.email : '' %>">
                 </div></li>
-
+                <% if(typeof(errors) != 'undefined' && errors.email){%>
+                    <span class="text-danger">
+                      <%= errors.email.msg %>
+                    </span>
+                 <%}%>
                 <li><div class="contra">
                     <label>Contraseña:</label>
-                    <input type="password" name="Contraseña" required>
+                    <input type="password" name="password" required>
                 </div></li>
-            
+                <% if(typeof(errors) != 'undefined' && errors.password){%>
+                    <span class="text-danger">
+                      <%= errors.password.msg %>
+                    </span>
+                 <%}%>
                 </nav>
 
                 <div class="botones">
 
                 <div class="boton-iniciar">
-                    <a href="/profile"><button type="submit">Iniciar sesión</button></a>
+                    <button type="submit">Iniciar sesión</button>
                 </div>
 
                 <div class="link-olvidaste">

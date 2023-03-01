@@ -3,12 +3,21 @@ const app = express();
 const path = require('path');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const access = require('./middlewares/access');
 
 app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
+
+//Middlewares
+app.use(session({
+    secret : 'nuestro mensaje secreto',
+    resave: false,
+    saveUninitialized: false,
+}))
+app.use(access);
 
 // RUTAS
 const rutaIndex = require('./routes/indexRoutes');
@@ -22,7 +31,6 @@ console.log("Servidor corriendo en http://localhost:" + port)
 );
 
 app.use('/', rutaIndex);
-app.use('/login', rutaLogin);
-app.use('/register', rutaRegister);
+app.use(rutaLogin);
 app.use(rutaProduct);
-app.use(session({secret: 'nuestro mensaje secreto'}));
+app.use(rutaRegister);

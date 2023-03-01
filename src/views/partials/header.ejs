@@ -11,11 +11,14 @@
             <a href="/"><img src="/images/logotipo-header.png" alt="Network - logotipo" id="logotipo-header"></a>
             <p id="titulo-principal">Network</p>
             <div class="compras-sesion" alt="Carrito">
+                <% if(locals.isLogge){%>
                 <a href="/newProduct">
                     <div class="carrito-compras" title="Agregar producto">
                         <i class="fas fa-plus-circle"></i>
                     </div>
                 </a>
+                <% } else { %>
+                <% if(locals.isLogged) { %>
                 <a href="/productCart">
                     <div class="carrito-compras"  title="Carrito">
                         <i class="fas fa-shopping-cart"></i>
@@ -29,6 +32,15 @@
                         </dis>
                     </div>
                 </a>
+                <form action="/" method="post">
+                    <button type="submit" class="inicio-sesion">
+                        <div class="mi-cuenta" title="Cerrar sesión">
+                            <p>Cerrar sesión</p>
+                            <i class="fas fa-sign-in-alt imagen-perfil" alt="Imagen de perfil"></i>
+                        </div>
+                    </button>
+                </form>
+                <% } else { %>
                 <a href="/login">
                     <div class="inicio-sesion">
                         <div class="mi-cuenta" title="Iniciar sesión">
@@ -37,6 +49,7 @@
                         </div>
                     </div>
                 </a>
+                <%}}%>
             </div>
         </section>
         <section class="informacion-cabecera">
