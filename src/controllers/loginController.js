@@ -1,5 +1,6 @@
 const { validationResult } = require('express-validator');
 const userLogin = require('../models/userLogin.js');
+const bcrypt = require('bcryptjs');
 const path = require('path');
 
 const loginController = {
@@ -25,7 +26,6 @@ const loginController = {
                 email: req.body.email,
                 domicilio: req.body.domicilio,
                 dni: req.body.dni,
-                password: bcrypt.hashSync(req.body.password, 10),
                 role: 1
             }
             let archivoUsers = fs.readFileSync(path.resolve(__dirname, '../data/users.json'), {

@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
-
+const bcrypt = require('bcryptjs');
+const {body} = require('express-validator');
 const router = express.Router();
-
+const registerController = require('../controllers/registerController')
 const multer = require('multer');
 
 const storage = multer.diskStorage({
@@ -38,18 +39,8 @@ app.post('/register', upload.single('avatarFile'), (req, res, next) => {
     res.send(file)
 })
 
-
-const bcrypt = require('bcryptjs');
-let passEncriptada = bcrypt.hashSync('monito123', 10);
-
-
-const {body} = require('express-validator');
-
-const registerController = require('../controllers/registerController')
-
 router.get('/', registerController.register)
-router.post('/src/controllers/registerController.js', 
-uploadFile.single('avatar'));
+router.post('/register', registerController.create, uploadFile.single('avatar'));
 // Validación → al subir archivos los validamos antes de permitir que sean almacenados
 //se usa app.post para validar
 
