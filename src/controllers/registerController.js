@@ -13,14 +13,10 @@ const registerController = {
     
     create: (req, res) => {
         let crear = {
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            email: req.body.email,
-            domicilio: req.body.domicilio,
-            dni: req.body.dni,
-            password: bcrypt.hashSync(req.body.password, 10), 
+            ...req.body
         }
-        let userToCreate = userLogin.create(crear)       
+        userLogin.create(crear);
+        return res.redirect('login');
     }
 }
 

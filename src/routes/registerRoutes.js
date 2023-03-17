@@ -39,7 +39,7 @@ app.post('/register', upload.single('avatarFile'), (req, res, next) => {
     res.send(file)
 })
 
-router.get('/', registerController.register)
+router.get('/register', registerController.register)
 router.post('/register', registerController.create, uploadFile.single('avatar'));
 // Validación → al subir archivos los validamos antes de permitir que sean almacenados
 //se usa app.post para validar
