@@ -3,13 +3,7 @@ const app = express();
 const path = require('path');
 const methodOverride = require('method-override');
 const session = require('express-session');
-const access = require('./middlewares/access');
-
-app.set('view engine', 'ejs');
-app.set("views", path.join(__dirname, "views"));
-app.use(express.static(path.join(__dirname, '../public')));
-app.use(express.urlencoded({ extended: false }));
-app.use(methodOverride('_method'));
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 //Middlewares
 app.use(session({
@@ -17,7 +11,13 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
 }))
-app.use(access);
+app.use(userLoggedMiddleware);
+
+app.set('view engine', 'ejs');
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
 
 // RUTAS
 const rutaIndex = require('./routes/indexRoutes');

@@ -1,27 +1,67 @@
 /* BODY */
-
 *{
     font-family: 'Nunito', sans-serif;
     margin: 0;
-
     box-sizing: border-box;
+}
+
+/* VALIDATIONS */
+.validation-error {
+    color: var(--rojo);
+    font-size: 0.75rem;
+    position: relative;
+    bottom: 25px;
+    left: 10px;
+    border-left: 4px solid var(--rojo);
+    padding: 8px;
+    margin: 8px 0;
+    background: rgba(255, 56, 56, 0.1);
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.validation-error i {
+    font-size: 1rem;
+}
+
+.validation-warning{
+    color: var(--amarillo);
+    font-size: 1rem;
+}
+
+.validation-success{
+    color: var(--verde);
+    font-size: 1rem;
+}
+
+.input-error{
+    border-style: solid;
+    border-width: 2px;
+    border-color: #f44336;
 }
 
 /* MAIN */
 main{
-    padding-top: 40%;
+    padding-top: 145px;
 }
 
 @media (min-width: 410px) {
     main{
-        padding-top: 27%;
+        padding-top: 134px;
     }
 }
 
 @media (min-width: 860px) {
     main{
-        padding-top: 15%;
+        padding-top: 155px;
     }
+
+    .validation-error{
+        font-size: 1rem;
+        bottom: 35px;
+}
 }
 
 a{
@@ -30,11 +70,11 @@ a{
 }
 
 /* COLOURS */
-
 :root{
     --negro: #140401;
     --azul: #005377;
     --verde: #06A77D;
     --arena: #D5C67A;
     --amarillo: #F1A208;
+    --rojo: #f44336;
 }

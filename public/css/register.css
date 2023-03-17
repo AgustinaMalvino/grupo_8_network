@@ -21,6 +21,10 @@ nav{
     margin: auto;
 }
 
+.nav-izq-der{
+        padding: 0;
+    }
+
 nav li{
     padding: 8px;
     position: relative;
@@ -111,7 +115,6 @@ button{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;  
-    margin-top: 15px;
     }
 
     nav li {
@@ -127,6 +130,10 @@ button{
 
 /* compu */
 @media (min-width:860px){
+    main{
+        padding-top: 145px;
+    }
+
     nav input{
         padding: 10px;
         font-size: 17.5px;
@@ -157,5 +164,9 @@ button{
 
     h2{
         font-size: 45px;
+    }
+
+    footer{
+        margin-top: 0;
     }
 }

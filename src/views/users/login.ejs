@@ -17,20 +17,22 @@
                     <nav>
                 <li><div class="correo">
                     <label>Correo eléctronico:</label>
-                    <input type="email" name="email" required minlength="8" value="<%= typeof old != 'undefined' ? old.email : '' %>">
+                    <input type="email" name="email" required minlength="8" value="<%= locals.oldData ? oldData.email : null %>" class="<% locals.errors && errors.email ? 'input-error' : null %>">
                 </div></li>
-                <% if(typeof(errors) != 'undefined' && errors.email){%>
-                    <span class="text-danger">
-                      <%= errors.email.msg %>
+                <% if(locals.errors && errors.email){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.email.msg %>
                     </span>
                  <%}%>
                 <li><div class="contra">
                     <label>Contraseña:</label>
-                    <input type="password" name="password" required>
+                    <input type="password" name="password" class="<%= locals.errors && errors.password ? 'input-error' : null %>" required>
                 </div></li>
                 <% if(typeof(errors) != 'undefined' && errors.password){%>
-                    <span class="text-danger">
-                      <%= errors.password.msg %>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.password.msg %>
                     </span>
                  <%}%>
                 </nav>

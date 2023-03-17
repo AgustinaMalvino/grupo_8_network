@@ -11,7 +11,7 @@
 }
 
 .login {
-    width: 40%;
+    width: 65%;
     margin: 1rem 0;
 }
 
@@ -19,6 +19,9 @@
 h2{
     text-align: center;
     color: #fff;
+    padding-top: 1rem;
+    margin: auto;
+    width: 90%;
 }
 
 .botones{
@@ -87,11 +90,22 @@ nav input{
     width: 100%;
     border-style: none;
     background-color: #fff;
+    padding: 6px;
 }
 
+/* tablet */
+@media (min-width:410px){
+    h2{
+        font-size: 2.5rem;
+    }
+}
 
 /* compu */
 @media (min-width:860px){
+    main{
+        padding-top: 145px;
+    }
+    
     nav input{
         padding: 10px;
         font-size: 17.5px;
@@ -113,5 +127,10 @@ nav input{
 
     h2{
         font-size: 45px;
+        padding-top: 12px;
+    }
+
+    footer{
+        margin-top: 0;
     }
 }

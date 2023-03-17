@@ -3,13 +3,6 @@
 main{
     width: 95%;
     margin: auto;
-    padding-top: 45%;
-}
-
-@media (min-width: 370px){
-    main{
-        padding-top: 40%;
-    }
 }
 
 main h2{
@@ -165,8 +158,9 @@ main h3{
 /* PC */
 
 @media (min-width: 860px){
-    main{
-        padding-top: 16%;
+
+    main {
+    padding-top: 155px;
     }
 
     main h3{
@@ -214,11 +208,5 @@ main h3{
 
     #servicio-a-contratar{
         font-size: xx-large;
-    }
-}
-
-@media (min-width: 1440px){
-    main{
-        padding-top: 14%;
     }
 }

@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator');
-const userLogin = require('../models/userLogin.js');
+const userLogin = require('../models/userLogin');
 const bcrypt = require('bcryptjs');
 const path = require('path');
 
@@ -21,17 +21,25 @@ const loginController = {
         let userToLogin = userLogin.findByField('email', req.body.email);
         if(userToLogin){
             if(req.body.password == userToLogin.password){
+                delete userToLogin.password;
                 req.session.userLogged = userToLogin;
                 return res.redirect('profile');
             }
-            return res.render('login', {
+            return res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
                 errors: {
-                    email: {
-                        msg: 'error'
+                    password: {
+                        msg: 'Las credenciales son inválidas.'
                     }
                 }
             });
         }
+        return res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
+			errors: {
+				email: {
+					msg: 'No se encuentra este email en nuestra base de datos'
+				}
+			}
+		});
     },
     logout: (req, res) => {
         req.session.destroy();

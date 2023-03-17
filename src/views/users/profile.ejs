@@ -12,23 +12,23 @@
     </header>
     <main>
         <div class="main">
-        <label><h2>¡Bienvenid@ user.name!</h2></label>
+        <label><h2>¡Bienvenid@ <%= user.first_name %> <%= user.last_name %></h2></label>
             <nav>
                 <ul class="nav-izq-der">
                 <li><div class = 'nombre'>
-                    <p>Nombre: user.name<p>
+                    <p>Nombre: <%= user.first_name %><p>
                 </div></li>
 
                 <li><div class="apellido">
-                    <p>Apellido: user.surname<p>
+                    <p>Apellido: <%= user.last_name %><p>
                 </div></li>
                 
                 <li><div class = 'dom'>
-                    <p>Domicilio: adress</p>  
+                    <p>Domicilio: <%= user.address %></p>  
                 </div></li>
 
                 <li><div class="correo">
-                    <p>Correo eléctronico: email</p>
+                    <p>Correo eléctronico: <%= user.email %></p>
 
                 </div></li>
 
@@ -39,15 +39,15 @@
 
                 <ul class="nav-izq-der">
                 <li><div class ='dni'>    
-                    <p>DNI: DNI</p>
+                    <p>DNI: <%= user.DNI %></p>
                 </div></li>
                 
                 <li><div class="fecha">
-                <label>Fecha de nacimiento: birth date</label>
+                <label>Fecha de nacimiento: <%= user.birthdate %></label>
                 </div></li>
 
                 <li><div class="sexo">
-                    <p>Sexo: XX</p>
+                    <p>Sexo: <%= user.gender %></p>
                 </div></li>
 
                 <li><div class="contra">

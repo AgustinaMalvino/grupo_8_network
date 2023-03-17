@@ -4,6 +4,11 @@ const userLogin = {
     // UBICACIÓN DE LA BASE DE DATOS DE LOS USUARIOS
     userDataBase: './src/data/users.json',
 
+    // CONVERTIR LOS DATOS JSON A OBJETOS LITERALES
+    getData: function(){
+        return JSON.parse(fs.readFileSync(this.userDataBase, 'utf-8'))
+    },
+
     // GENERADOR DE NUEVOS IDs
     generateId: function(){
         let allUsers = this.findAll();
@@ -11,11 +16,6 @@ const userLogin = {
         if(lastUser){
             return lastUser.id + 1;
         } else {return 1}
-    },
-
-    // CONVERTIR LOS DATOS JSON A OBJETOS LITERALES
-    getData: function(){
-        return JSON.parse(fs.readFileSync(this.userDataBase, 'utf-8'))
     },
 
     // BUSCA A TODOS LOS USUARIOS DE LA BASE DE DATOS
