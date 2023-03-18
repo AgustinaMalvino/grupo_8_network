@@ -1300,28 +1300,65 @@
   "image": "https://robohash.org/quivelitdignissimos.png?size=50x50&set=set1"
  },
  {
-  "id": 101,
-  "first_name": "Prueba",
-  "last_name": "Gatito",
-  "address": "4839 Mandrake Hill",
-  "email": "prueba@prueba.com",
-  "numberphone": "877-360-1556",
-  "DNI": 1234567,
-  "birth date": "13.01.1976",
-  "gender": "Agender",
-  "password": "1234",
-  "image": "https://robohash.org/quivelitdignissimos.png?size=50x50&set=set1"
+  "id": 101
  },
  {
-  "id": 102,
-  "Nombre": "Prueba2",
-  "Apellido": "Prueba2",
-  "Domicilio": "capital",
-  "email": "prueba@gatito.com",
+  "id": 102
+ },
+ {
+  "id": 103
+ },
+ {
+  "id": 104
+ },
+ {
+  "id": 105
+ },
+ {
+  "id": 106
+ },
+ {
+  "id": 107
+ },
+ {
+  "id": 108
+ },
+ {
+  "id": 109,
+  "Nombre": "agustina",
+  "Apellido": "malvino",
+  "Domicilio": "sor",
+  "Email": "agustinamalvino@gmail.com",
   "Imagen": "",
-  "DNI": "7777777",
+  "DNI": "42403000",
   "sexo": "Femenino",
-  "password": "1234",
-  "password-confirm": "1234"
+  "Contraseña": "12262332",
+  "Confirmar contraseña": "12262332"
+ },
+ {
+  "id": 110,
+  "Nombre": "fede",
+  "Apellido": "diganchi",
+  "Domicilio": "ssjfbb",
+  "Email": "fedeq@gmail.com",
+  "Imagen": "factura luz_edesur.jpeg",
+  "DNI": "42403000",
+  "sexo": "Masculino",
+  "Contraseña": "aa1541172",
+  "Confirmar contraseña": "aa154114",
+  "condiciones": "on"
+ },
+ {
+  "id": 111,
+  "Nombre": "franco",
+  "Apellido": "malvino",
+  "Domicilio": "sor picardo",
+  "Email": "franco@gmail.com",
+  "Imagen": "3. enero 23.pdf",
+  "DNI": "12262332",
+  "sexo": "Masculino",
+  "Contraseña": "12262332",
+  "Confirmar contraseña": "12262332",
+  "condiciones": "on"
  }
 ]
