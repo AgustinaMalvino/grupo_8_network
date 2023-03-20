@@ -69,6 +69,7 @@ h2{
 
 .contra{
     color: #fff;
+    padding-top: 2rem;
 }
 
 nav{
@@ -91,6 +92,15 @@ nav input{
     border-style: none;
     background-color: #fff;
     padding: 6px;
+}
+
+.recordar{
+    text-align: center;
+    color: #fff;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
 }
 
 /* tablet */

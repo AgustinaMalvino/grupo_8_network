@@ -1360,5 +1360,20 @@
   "Contraseña": "12262332",
   "Confirmar contraseña": "12262332",
   "condiciones": "on"
+ },
+ {
+  "id": 112,
+  "first_name": "Gato",
+  "last_name": "Gatito",
+  "address": "Capital Federal",
+  "email": "gato@gato.com",
+  "DNI": "12345678",
+  "gender": "Femenino",
+  "password": "$2a$10$IbNZy28TZicBdBCo0BfzKOdmiHHWZCN5NVMoxno9Up3NCwYnIgvse",
+  "confirm_password": "1234",
+  "condiciones": "on",
+  "notificaciones": "on",
+  "image": "1679273923004_img.jpg",
+  "role": "user"
  }
 ]

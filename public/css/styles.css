@@ -10,8 +10,6 @@
     color: var(--rojo);
     font-size: 0.75rem;
     position: relative;
-    bottom: 25px;
-    left: 10px;
     border-left: 4px solid var(--rojo);
     padding: 8px;
     margin: 8px 0;
@@ -60,7 +58,6 @@ main{
 
     .validation-error{
         font-size: 1rem;
-        bottom: 35px;
 }
 }
 

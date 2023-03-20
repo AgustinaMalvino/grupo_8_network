@@ -14,11 +14,15 @@ const validations = [
     body('dni').notEmpty().withMessage('Escriba su número de documento en este campo (sin puntos)'),
     body('sexo').notEmpty().withMessage('Seleccione su género'),
     body('password').notEmpty().withMessage('Las contraseñas no coinciden o son invalidas, por favor, vuelva a definir su contraseña'),
-]
+];
+
+// MIDDLEWARES DE RUTAS
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware')
 
 // RUTAS
-router.get('/login', loginController.login);
-router.get('/profile', loginController.profile);
+router.get('/login', guestMiddleware, loginController.login);
+router.get('/profile', authMiddleware, loginController.profile);
 router.post('/login', loginController.loginProcess);
 router.post('/', loginController.logout);
 

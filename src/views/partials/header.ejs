@@ -28,7 +28,11 @@
                     <div class="inicio-sesion">
                         <dis class="mi-cuenta" title="Ingresar a tu perfil">
                             <p>Entrar al perfil</p>
+                            <% if(locals.userLogged.image){ %>
+                                <img src="/images/avatars/<%=locals.userLogged.image%>" alt="Imagen de perfil" class="imagen-perfil">
+                            <% } else { %>
                             <i class="fas fa-user imagen-perfil"></i>
+                            <% } %>
                         </dis>
                     </div>
                 </a>

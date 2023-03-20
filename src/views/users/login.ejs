@@ -12,23 +12,24 @@
     </header>
         <main>
             <div class="main">
-            <label><h2>¡Inicia sesión para avanzar con tu pedido!</h2></label>
+            <h2>¡Inicia sesión para avanzar con tu pedido!</h2>
                 <form action="/login" method="post" class="login">
-                    <nav>
-                <li><div class="correo">
+                <!-- INPUTS -->
+                <nav>
+                <div class="correo">
                     <label>Correo eléctronico:</label>
-                    <input type="email" name="email" required minlength="8" value="<%= locals.oldData ? oldData.email : null %>" class="<% locals.errors && errors.email ? 'input-error' : null %>">
-                </div></li>
+                    <input type="email" name="email" required minlength="8" value="<%= locals.oldData ? oldData.email : null %>" class="<%- locals.errors && (errors.email || errors.password) ? 'input-error' : null %>">
+                </div>
                 <% if(locals.errors && errors.email){%>
                     <span class="validation-error">
                         <i class="fas fa-exclamation-circle"></i>
                         <%= errors.email.msg %>
                     </span>
                  <%}%>
-                <li><div class="contra">
+                <div class="contra">
                     <label>Contraseña:</label>
                     <input type="password" name="password" class="<%= locals.errors && errors.password ? 'input-error' : null %>" required>
-                </div></li>
+                </div>
                 <% if(typeof(errors) != 'undefined' && errors.password){%>
                     <span class="validation-error">
                         <i class="fas fa-exclamation-circle"></i>
@@ -36,22 +37,22 @@
                     </span>
                  <%}%>
                 </nav>
-
+                <!-- BOTONES -->
+                <div class="recordar">
+                    <label for="remember_user">¿Desea mantener la sesión abierta?</label>
+                    <input type="checkbox" name="remember_user" id="recordar">
+                </div>
                 <div class="botones">
-
                 <div class="boton-iniciar">
                     <button type="submit">Iniciar sesión</button>
                 </div>
-
                 <div class="link-olvidaste">
                     <a href="#">¿Olvistaste tu contraseña?</a>
                 </div>
-
                 <div class="link-registrate">
                     <a href="register">Registrate con nosotros</a>
                 </div>
                 </div>
-
                 </form></div>
         </main>
         <footer>
