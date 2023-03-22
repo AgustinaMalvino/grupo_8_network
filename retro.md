@@ -22,8 +22,15 @@ Retrospectiva del Sprint 3.
 5- Dejar de hacer: lineas de codigo repetidas.
 
 Retrospectiva del Sprint 4.
-1- Comenzar a hacer: 
-2- Hacer más: 
-3- Continuar haciendo: 
-4- Hacer menos: 
-5- Dejar de hacer: 
+1- Comenzar a hacer: comentarios en las líneas de códigos.
+2- Hacer más: optimización de las líneas de códigos.
+3- Continuar haciendo: crear las funciones de los usuarios tal como se realizó con el de los productos.
+4- Hacer menos: simplificar las funciones del back-end en un mismo archivo.
+5- Dejar de hacer: commits poco descriptivo con respecto a los cambios realizados (ejemplo: si se movieron archivos, detallar esos archivos y la carpeta de destino)
+
+Retrospectiva del Sprint 5.
+1- Comenzar a hacer: back-ups personales del proyecto.
+2- Hacer más: pruebas sobre nuestro propio proyecto.
+3- Continuar haciendo: más comentarios en el código del proyecto.
+4- Hacer menos: simplificar las funciones del back-end en un mismo archivo.
+5- Dejar de hacer: muchos commits.
