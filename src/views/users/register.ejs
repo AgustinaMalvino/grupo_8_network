@@ -15,81 +15,162 @@
         <label><h2>¡Registrate con nosotros para avanzar con el pedido!</h2></label>
         <form action="/register" method="post" class="register" enctype="multipart/form-data">
             <nav>
+                <!--INPUT DE NOMBRE-->
                 <ul class="nav-izq-der">
                 <li><div class = 'nombre'>
                     <label>Nombre:</label>
-                    <input type="text" name="first_name" required minlength="2">
+                    <input type="text" name="first_name" required minlength="2" value="<%= locals.oldData ? oldData.first_name : null %>" class="<%- locals.errors && errors.first_name ? 'input-error' : null %>">
+                    <% if(locals.errors && errors.first_name){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.first_name.msg %>
+                    </span>
+                 <%}%>
                 </div></li>
-
+                </ul>
+                <!--INPUT DE APELLIDO-->
+                <ul class="nav-izq-der">
                 <li><div class="apellido">
                     <label>Apellido:</label>
-                    <input type="text" name="last_name" required minlength="2">
+                    <input type="text" name="last_name" required minlength="2" value="<%= locals.oldData ? oldData.last_name : null %>" class="<%- locals.errors && errors.last_name ? 'input-error' : null %>">
+                    <% if(locals.errors && errors.last_name){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.last_name.msg %>
+                    </span>
+                 <%}%>
                 </div></li>
-                
+                </ul>
+                <!--INPUT DE DOMICILIO-->
+                <ul class="nav-izq-der">
                 <li><div class = 'dom'>
                     <label>Domicilio:</label>
-                    <input type="text" name="address" required minlength="3">  
+                    <input type="text" name="address" required minlength="3" value="<%= locals.oldData ? oldData.address : null %>" class="<%- locals.errors && errors.address ? 'input-error' : null %>">
+                    <% if(locals.errors && errors.address){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.address.msg %>
+                    </span>
+                 <%}%> 
                 </div></li>
-
+                </ul>
+                <!--INPUT DE CORREO ELECTRÓNICO-->
+                <ul class="nav-izq-der">
                 <li><div class="correo">
                     <label>Correo eléctronico:</label>
-                    <input type="email" name="email" required minlength="8">
+                    <input type="email" name="email" required minlength="8" value="<%= locals.oldData ? oldData.email : null %>" class="<%- locals.errors && errors.email ? 'input-error' : null %>">
+                    <% if(locals.errors && errors.email){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.email.msg %>
+                    </span>
+                 <%}%>
                 </div></li>
-
+                </ul>
+                <!--INPUT DE GÉNERO-->
+                <ul class="nav-izq-der">
+                <li><div class="sexo">
+                    <label>Género:</label>
+                        <select name="gender" id="sexo" required class="<%- locals.errors && errors.gender ? 'input-error' : null %>">
+                            <option value="">Elegí tu género</option>
+                            <% let generos=['Femenino', 'Masculino' , 'X' ]; %>
+                                <% for (const oneGender of generos) { %>
+                                    <option value="<%= oneGender %>" <%=locals.oldData && (oneGender===oldData.gender) ? 'selected' : null %> >
+                                        <%= oneGender %>
+                                    </option>
+                                    <% } %>
+                        </select>
+                        <% if(locals.errors && errors.gender){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.gender.msg %>
+                    </span>
+                 <%}%> 
+                </div></li>
+                </ul>
+                <!--INPUT DE DNI-->
+                <ul class="nav-izq-der">
+                <li><div class ='dni'>    
+                    <label>DNI:</label>
+                    <input type="text" name="DNI" required minlength="7" value="<%= locals.oldData ? oldData.DNI : null %>" class="<%- locals.errors && errors.DNI ? 'input-error' : null %>">
+                    <% if(locals.errors && errors.DNI){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.DNI.msg %>
+                    </span>
+                 <%}%>
+                </div></li>
+                </ul>
+                <!--INPUT DE FECHA DE NACIMIENTO-->
+                <ul class="nav-izq-der">
+                <li><div class="fecha">
+                <label>Fecha de nacimiento:</label>
+                <input type="date" name="birth_date" id="birth_date" required value="<%= locals.oldData ? oldData.birth_date : null %>" class="<%- locals.errors && errors.birth_date ? 'input-error' : null %>">
+                <% if(locals.errors && errors.birth_date){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.birth_date.msg %>
+                    </span>
+                 <%}%>
+                </div></li>
+                </ul>
+                <!--INPUT DE CONTRASEÑA-->
+                <ul class="nav-izq-der">
+                <li><div class="contra">
+                    <label>Contraseña:</label>
+                    <input type="password" name="password" required class="<%- locals.errors && errors.last_name ? 'input-error' : null %>">
+                    <% if(locals.errors && errors.password){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.password.msg %>
+                    </span>
+                 <%}%>
+                </div></li>
+                </ul>
+                <!--INPUT DE IMAGEN DE PERFIL-->
+                <ul class="nav-izq-der">
                 <li><div class = 'tel'>
                     <label>Imagen de perfil:</label>
                     <input type="file" name="image" accept=".jpg" enctype="multipart/form-data">
                 </div></li>
                 </ul>
-
+                <!--INPUT DE CONFIRMAR CONTRASEÑA-->
                 <ul class="nav-izq-der">
-                <li><div class ='dni'>    
-                    <label>DNI:</label>
-                    <input type="text" name="DNI" required minlength="7">
-                </div></li>
-                
-
-                <li><div class="fecha">
-                <label>Fecha de nacimiento:</label>
-                <input type="date" name="birth_date" id="birth_date" required>
-                </div></li>
-
-                <li><div class="sexo">
-                    <label>Sexo:</label>
-                        <select name="gender" id="sexo"  required>
-                        <option value="Femenino">Femenino</option>
-                        <option value="Masculino">Masculino</option>
-                        <option value="X">X</option>
-                        </select>
-                </div></li>
-
-                <li><div class="contra">
-                    <label>Contraseña:</label>
-                    <input type="password" name="password" required>
-                </div></li>
-
                 <li><div class="confir-contra">
                     <label>Confirmar contraseña:</label>
-                    <input type="password" name="confirm_password" required>
+                    <input type="password" name="confirm_password" required class="<%- locals.errors && errors.last_name ? 'input-error' : null %>">
+                    <% if(locals.errors && errors.confirm_password){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.confirm_password.msg %>
+                    </span>
+                 <%}%>
                 </div></li>
                 </ul>
             </nav>
-
+            </ul>
+            <!--INPUTS DE CHECKBOXES-->
+                <!--CONDICIONES-->
                 <div class="condiciones">
                     <label for="condiciones">Acepto las condiciones</label>
-                    <input type="checkbox" name="condiciones">
+                    <input type="checkbox" <%- (locals.oldData && oldData.condiciones == "on") ? 'checked' : null %> name="condiciones">
+                    <% if(locals.errors && errors.condiciones){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.condiciones.msg %>
+                    </span>
+                 <%}%>
                 </div>
-
+                <!--NOTIFICACIONES-->
                 <div class = 'notificacion'>
                     <label for="notificaciones">Acepto recibir notificaciones de actualizaciones y promociones a mi correo</label>
-                    <input type="checkbox" name="notificaciones">                    
+                    <input type="checkbox" <%- (locals.oldData && oldData.notificaciones == "on") ? 'checked' : null %> name="notificaciones">                    
                 </div>
-
+            <!--BOTONES-->
                 <div class="botones">
                 <div class="boton">
                     <button type="submit">Registrarse</button>
                 </div>
-
                 <div class="boton-borrar">
                     <button type="reset"> Borrar</button>
                 </div>

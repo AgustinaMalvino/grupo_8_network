@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     paquetes.associate = function(models) {
         paquetes.belongsToMany(models.paquetes, {
           as: "paquetes",
-          foreignKey: "user_product"
+          foreignKey: "users_products"
         });
     }
 

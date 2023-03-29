@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const { body } = require('express-validator');
 const path = require('path');
+const validations = require('../middlewares/validationsMiddleware')
 
 // MIDDLEWARES: MULTER
 const storage = multer.diskStorage({
@@ -28,6 +29,6 @@ const uploadFile = multer({ storage });
 const registerController = require('../controllers/registerController');
 
 router.get('/register', guestMiddleware, registerController.register)
-router.post('/register', uploadFile.single('image'), registerController.create);
+router.post('/register', uploadFile.single('image'), validations, registerController.create);
 
 module.exports = router

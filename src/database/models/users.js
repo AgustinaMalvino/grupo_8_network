@@ -33,9 +33,6 @@ module.exports = (sequelize, DataTypes) => {
         image: {
             type: DataTypes.STRING
         },
-        products: {
-            type: DataTypes.STRING
-        },
         role: {
             type: DataTypes.STRING
         }
@@ -51,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
     Users.associate = function(models) {
         Users.belongsToMany(models.products, {
           as: "products",
-          foreignKey: "user_product"
+          foreignKey: "users_products"
         });
     }
 

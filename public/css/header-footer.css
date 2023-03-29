@@ -13,16 +13,18 @@
 }
 
 .imagen-perfil{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     border-style: solid;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 15px;
     background-color: var(--azul);
     object-fit: cover;
+    position: relative;
+    z-index: 3;
 }
 
 .mi-cuenta i{
@@ -43,18 +45,36 @@
     display: flex;
     align-items: center;
     gap: 2%;
+    justify-content: center;
 }
 
 .inicio-sesion, .carrito-compras{
     padding: 0.5rem;
     border-radius: 10px;
-    background: linear-gradient(to top right, #005377, #06A77D);
+    background-image: linear-gradient(to top right, #005377, #06A77D);
     color: #FFF;
     width: max-content;
+    position: relative;
+    z-index: 1;
 }
 
-.inicio-sesion:hover, .carrito-compras:hover{
-    background: linear-gradient(to bottom left, #005377, #06A77D);
+.inicio-sesion::after, .carrito-compras::after{
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom left, #005377, #06A77D);
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    transition: opacity 0.25s ease-out;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.inicio-sesion:hover::after, .carrito-compras:hover::after{
+    opacity: 1;
 }
 
 .carrito-compras{
@@ -72,6 +92,8 @@
 
 .mi-cuenta p{
     display: none;
+    position: relative;
+    z-index: 3;
 }
 
 .informacion-cabecera{
@@ -179,17 +201,21 @@ footer ul, footer ul li{
     }
 
     #titulo-principal{
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
+    .compras-sesion{
+    gap: 3vw;
+}
+
     .mi-cuenta p{
-        font-size: 2.5vw;
+        font-size: 0.75rem;
     }
 
     .imagen-perfil{
-    width: 55px;
-    height: 55px;
-    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
     }
 
     .informacion-footer{
@@ -200,7 +226,18 @@ footer ul, footer ul li{
         padding: 0.5rem 0.3rem;
     }
 
+}
 
+/* XL TABLET */
+
+@media (min-width: 610px) {
+    .compras-sesion{
+    gap: 2%;
+}
+
+    .mi-cuenta p{
+        display: block;
+    }
 }
 
 /* PC */
@@ -216,17 +253,17 @@ footer ul, footer ul li{
     }
     
     #titulo-principal{
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
 
     .imagen-perfil{
-        width: 70px;
-        height: 70px;
-        font-size: 45px;
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
     }
 
     .mi-cuenta p{
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .mi-cuenta p{

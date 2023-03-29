@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,7 @@
             <a href="/"><img src="/images/logotipo-header.png" alt="Network - logotipo" id="logotipo-header"></a>
             <p id="titulo-principal">Network</p>
             <div class="compras-sesion" alt="Carrito">
-                <% if(locals.isLogge){%>
+                <% if(locals.isLogged.role == 'admin'){%>
                 <a href="/newProduct">
                     <div class="carrito-compras" title="Agregar producto">
                         <i class="fas fa-plus-circle"></i>
@@ -21,7 +21,7 @@
                 <% if(locals.isLogged) { %>
                 <a href="/productCart">
                     <div class="carrito-compras"  title="Carrito">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="fas fa-shopping-cart imagen-perfil"></i>
                     </div>
                 </a>
                 <a href="/profile">
@@ -50,6 +50,14 @@
                         <div class="mi-cuenta" title="Iniciar sesión">
                             <p>Iniciar sesión</p>
                             <i class="fas fa-sign-in-alt imagen-perfil" alt="Imagen de perfil"></i>
+                        </div>
+                    </div>
+                </a>
+                <a href="/register">
+                    <div class="inicio-sesion">
+                        <div class="mi-cuenta" title="Registrate con nosotros">
+                            <p>Registrarse</p>
+                            <i class="far fa-id-card imagen-perfil" alt="Imagen de perfil"></i>
                         </div>
                     </div>
                 </a>

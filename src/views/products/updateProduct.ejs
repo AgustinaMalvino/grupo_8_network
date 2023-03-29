@@ -25,33 +25,33 @@
             </div>
             <div class="seccion-formulario">
                 <label>Nueva descripción acerca del producto:</label>
-                <textarea name="descripcion-producto" id="descripcion-producto" cols="50" rows="2" required> value="<%= servicioFiltrado.description%>"</textarea>
+                <textarea name="description" id="descripcion-producto" cols="50" rows="2" required> value="<%= servicioFiltrado.description%>"</textarea>
             </div>
             <div class="seccion-formulario">
                 <label>Seleccione la categoria del producto:</label>
-                <select name="categoria" id="categoria" required>
-                    <option value="cable">Cable</option>
-                    <option value="internet">Internet</option>
-                    <option value="paquetes">Paquetes</option>
-                    <option value="aplicaciones">Aplicaciones</option>
+                <select name="category" id="categoria" required>
+                    <% let categories=['Cable', 'Internet' , 'Paquetes' , 'Aplicaciones']; %>
+                    <% for (const oneCategory of categories) { %>
+                        <option value="<%= oneCategory %>" <%= (oneCategory === servicioFiltrado.category) ? 'selected' : null %> > <%= oneCategory %> </option>
+                        <% } %>
                 </select>
             </div>
             <div class="seccion-formulario">
                 <label>Escriba nuevo precio del producto:</label>
-                <input type="number" name="precio" id="precio" required value="<%= servicioFiltrado.price%>">
+                <input type="number" name="price" id="precio" required value="<%= servicioFiltrado.price%>">
             </div>
             <div class="seccion-formulario">
                 <p>¿Quiere agregar un descuento al producto?:</p>
                 <div class="opciones-radio">
                     <label>Si</label>
-                    <input type="radio" name="true" id="true">
+                    <input type="radio" name="haveDiscount" value="true" id="true" checked>
                 </div>
                 <div class="opciones-radio">
                     <label>No</label>
-                    <input type="radio" name="false" id="false">
+                    <input type="radio" name="haveDiscount" value="false" id="false">
                 </div>
                 <label>Escriba porcentaje del descuento:</label>
-                <input type="number" name="descuento" id="descuento" max="100" value="<%= servicioFiltrado.discount%>">
+                <input type="number" name="discount" id="descuento" min="0" max="100" value="<%= servicioFiltrado.discount%>">
             </div>
             <div class="botones">
                 <div class="boton-guardar">

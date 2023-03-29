@@ -1,27 +1,14 @@
 const fs = require('fs');
 const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../data/products-test.json');
+const products = require('../models/products');
 
 const productsController = {
 
 	productList: (req, res) => {
-		const productosLeidos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-		let productosCable = productosLeidos.filter(servicio => {
-			return servicio.category == "Cable"
-		});
-
-		let productosInternet = productosLeidos.filter(servicio => {
-			return servicio.category == "Internet"
-		});
-
-		let productosPaquetes = productosLeidos.filter(servicio => {
-			return servicio.category == "Paquetes"
-		});
-
-		let productosAplicaciones = productosLeidos.filter(servicio => {
-			return servicio.category == "Aplicaciones"
-		});
+		let productosCable = products.filterByField('category', 'Cable')
+		let productosInternet = products.filterByField('category', 'Internet')
+		let productosPaquetes = products.filterByField('category', 'Paquetes')
+		let productosAplicaciones = products.filterByField('category', 'Aplicaciones')
 
 		res.render(path.resolve(__dirname, '..', 'views', 'products', 'productList'), {
 			cable: productosCable,
@@ -36,35 +23,20 @@ const productsController = {
 	},
 
 	create: (req, res) => {
-		let servicios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products-test.json')));
 		res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'));
 	},
 	
 	processCreate: (req, res) => {
-		let servicios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products-test.json')));
-        let ultimoServicio = servicios.pop();
-        servicios.push(ultimoServicio);
-        let nuevoProducto = {
-            id: ultimoServicio.id +1,
-            name: req.body.nombre,
-            description: req.body.description,
-            price: req.body.price,
-            discount: req.body.discount,
-			category: req.body.category
-        }
-        servicios.push(nuevoProducto);
-        let nuevoProductoGuardar = JSON.stringify(servicios,null,2);
-        fs.writeFileSync(path.resolve(__dirname,'../data/products-test.json'), nuevoProductoGuardar);
-        res.redirect('/newProduct');
+		let crear = {
+			...req.body
+		}
+		products.create(crear);
+        return res.redirect('/newProduct');
 	},
 
 	edit: (req, res) => {
-		const productosLeidos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		let id = req.params.id;
-		let servicioFiltrado = productosLeidos.find(servicio => {
-			return servicio.id == id;
-		})
-
+		let servicioFiltrado = products.findByPk(id);
 		res.render(path.resolve(__dirname, '..', 'views', 'products', 'updateProduct'), {servicioFiltrado});
 	},
 
