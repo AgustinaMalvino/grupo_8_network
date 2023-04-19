@@ -21,14 +21,16 @@
                     <p><%= producto.name %></p>
                     <ul class="detalle-servicio">
                         <%- producto.description %>
-                        <% if(locals.isLogged) { %>
+                        <% if(locals.isLogged && locals.userLogged.role === 'admin') { %>
                         <a href="/<%= producto.id %>/edit">
                         <div class="modificar">
+                            <i class="fas fa-edit"></i>
                             <p>Modificar servicio</p>
                         </div>
                         </a>
                         <a href="/<%= producto.id %>/delete">
                             <div class="eliminar">
+                                <i class="fas fa-trash"></i>
                                 <p>Eliminar servicio</p>
                             </div>
                         </a>
@@ -51,14 +53,16 @@
                     <p><%= producto.name %></p>
                     <ul class="detalle-servicio">
                         <%- producto.description %>
-                        <% if(locals.isLogged) { %>
+                        <% if(locals.isLogged && locals.userLogged.role === 'admin') { %>
                         <a href="/<%= producto.id %>/edit">
                         <div class="modificar">
+                            <i class="fas fa-edit"></i>
                             <p>Modificar servicio</p>
                         </div>
                         </a>
                         <a href="/<%= producto.id %>/delete">
                             <div class="eliminar">
+                                <i class="fas fa-trash"></i>
                                 <p>Eliminar servicio</p>
                             </div>
                         </a>
@@ -83,14 +87,16 @@
                     <p><%= producto.name %></p>
                     <ul class="detalle-servicio">
                         <%- producto.description %>
-                        <% if(locals.isLogged) { %>
+                        <% if(locals.isLogged && locals.userLogged.role === 'admin') { %>
                         <a href="/<%= producto.id %>/edit">
                         <div class="modificar">
+                            <i class="fas fa-edit"></i>
                             <p>Modificar servicio</p>
                         </div>
                         </a>
                         <a href="/<%= producto.id %>/delete">
                             <div class="eliminar">
+                                <i class="fas fa-trash"></i>
                                 <p>Eliminar servicio</p>
                             </div>
                         </a>
@@ -113,14 +119,16 @@
                     <p><%= producto.name %></p>
                     <ul class="detalle-servicio">
                         <%- producto.description %>
-                        <% if(locals.isLogged) { %>
+                        <% if(locals.isLogged && locals.userLogged.role === 'admin') { %>
                         <a href="/<%= producto.id %>/edit">
                         <div class="modificar">
+                            <i class="fas fa-edit"></i>
                             <p>Modificar servicio</p>
                         </div>
                         </a>
                         <a href="/<%= producto.id %>/delete">
                             <div class="eliminar">
+                                <i class="fas fa-trash"></i>
                                 <p>Eliminar servicio</p>
                             </div>
                         </a>

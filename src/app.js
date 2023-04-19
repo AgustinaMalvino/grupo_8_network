@@ -8,12 +8,12 @@ const cookies = require('cookie-parser');
 
 //Middlewares
 app.use(session({
-    secret : 'nuestro mensaje secreto',
+    secret: 'nuestro mensaje secreto',
     resave: false,
     saveUninitialized: false,
-}))
-app.use(userLoggedMiddleware);
+}));
 app.use(cookies());
+app.use(userLoggedMiddleware);
 app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, '../public')));
@@ -32,6 +32,6 @@ console.log("Servidor corriendo en http://localhost:" + port)
 );
 
 app.use('/', rutaIndex);
-app.use(rutaLogin);
 app.use(rutaProduct);
 app.use(rutaRegister);
+app.use(rutaLogin);

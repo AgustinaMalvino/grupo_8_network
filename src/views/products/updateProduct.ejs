@@ -14,45 +14,86 @@
     </header>
     <main>
         <h1>Modifique el siguiente formulario del producto/servicio seleccionado</h1>
-        <form action="/<%= servicioFiltrado.id%>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/<%= servicioFiltrado.id%>/edit?_method=PUT" method="POST">
+            <% if(successful){%>
+                    <span class="validation-success" id="mensaje-satisfactorio">
+                        <i class="fas fa-check-circle"></i>
+                        <p>¡El producto se modificó con exito!</p>
+                    </span>
+                 <%} else if (successful != null){%>
+                    <span class="validation-warning" id="mensaje-error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>No se puede modificar el producto debido a unos errores en el formulario, revise los mensajes debajo de los campos</p>
+                    </span>
+                 <%}%>
             <div class="seccion-formulario">
                 <label>Seleccione o suba una imagen/ícono que identifique al producto:</label>
                 <input type="file" name="image">
             </div>
             <div class="seccion-formulario">
                 <label>Nuevo nombre del producto:</label>
-                <input type="text" name="name" id="nombre-producto" value="<%= servicioFiltrado.name%>" required>
+                <input type="text" name="name" id="nombre-producto" value="<%= locals.oldData ? oldData.name :  servicioFiltrado.name%>" <%- locals.errors && errors.name ? 'class="input-error"' : null %> required>
             </div>
+            <% if(locals.errors && errors.name){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.name.msg %>
+                    </span>
+                 <%}%>
             <div class="seccion-formulario">
                 <label>Nueva descripción acerca del producto:</label>
-                <textarea name="description" id="descripcion-producto" cols="50" rows="2" required> value="<%= servicioFiltrado.description%>"</textarea>
+                <textarea name="description" id="descripcion-producto" cols="50" rows="2" required <%- locals.errors && errors.description ? 'class="input-error"' : null %>><%= servicioFiltrado.description%></textarea>
             </div>
+            <% if(locals.errors && errors.description){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.description.msg %>
+                    </span>
+                 <%}%>
             <div class="seccion-formulario">
                 <label>Seleccione la categoria del producto:</label>
-                <select name="category" id="categoria" required>
-                    <% let categories=['Cable', 'Internet' , 'Paquetes' , 'Aplicaciones']; %>
+                <select name="category" id="categoria" required <%- locals.errors && errors.category ? 'class="input-error"' : null %>>
+                    <% let categories=['Cable', 'Internet', 'Paquetes', 'Aplicaciones']; %>
                     <% for (const oneCategory of categories) { %>
                         <option value="<%= oneCategory %>" <%= (oneCategory === servicioFiltrado.category) ? 'selected' : null %> > <%= oneCategory %> </option>
                         <% } %>
                 </select>
             </div>
+            <% if(locals.errors && errors.category){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.category.msg %>
+                    </span>
+                 <%}%>
             <div class="seccion-formulario">
                 <label>Escriba nuevo precio del producto:</label>
-                <input type="number" name="price" id="precio" required value="<%= servicioFiltrado.price%>">
+                <input type="number" name="price" id="precio" min="1" required value="<%= servicioFiltrado.price%>" <%- locals.errors && errors.price ? 'class="input-error"' : null %>>
             </div>
+            <% if(locals.errors && errors.price){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.price.msg %>
+                    </span>
+                 <%}%>
             <div class="seccion-formulario">
                 <p>¿Quiere agregar un descuento al producto?:</p>
                 <div class="opciones-radio">
                     <label>Si</label>
-                    <input type="radio" name="haveDiscount" value="true" id="true" checked>
+                    <input type="radio" name="offer" value="true" id="yes" <%=servicioFiltrado.offer == true ? 'checked' : null %>>
                 </div>
                 <div class="opciones-radio">
                     <label>No</label>
-                    <input type="radio" name="haveDiscount" value="false" id="false">
+                    <input type="radio" name="offer" value="false" id="no" <%=servicioFiltrado.offer == false ? 'checked' : null %>>
                 </div>
                 <label>Escriba porcentaje del descuento:</label>
-                <input type="number" name="discount" id="descuento" min="0" max="100" value="<%= servicioFiltrado.discount%>">
+                <input type="number" name="discount" id="descuento" min="0" max="100" <%- locals.errors && errors.offer ? 'class="input-error"' : null %> value="<%= servicioFiltrado.discount%>">
             </div>
+            <% if(locals.errors && errors.offer){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.offer.msg %>
+                    </span>
+                 <%}%>
             <div class="botones">
                 <div class="boton-guardar">
                     <button type="submit">Modificar producto</button>
@@ -62,6 +103,7 @@
     <footer>
         <%- include("../partials/footer") %>
     </footer>
+    <script src="/js/productNewUpdate.js"></script>
 </body>
 
 </html>

@@ -24,6 +24,9 @@ module.exports = (sequelize, DataTypes) => {
         gender: {
             type: DataTypes.STRING
         },
+        birth_date: {
+            type: DataTypes.DATE
+        },
         password: {
             type: DataTypes.STRING
         },
@@ -35,6 +38,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         role: {
             type: DataTypes.STRING
+        },
+        product_id: {
+            type: DataTypes.INTEGER
         }
     };
 
@@ -46,8 +52,9 @@ module.exports = (sequelize, DataTypes) => {
     const Users = sequelize.define("Users", cols, config);
 
     Users.associate = function(models) {
-        Users.belongsToMany(models.products, {
-          as: "products",
+        Users.belongsToMany(models.Products, {
+          as: "Products",
+          through: "users_products",
           foreignKey: "users_products"
         });
     }

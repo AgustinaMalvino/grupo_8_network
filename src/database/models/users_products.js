@@ -6,26 +6,28 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             primaryKey: true,
         },
-        name: "Paramount Plus",
-        name: "Disney+",
-        name: "Star+",
-        name: "HBO Max"
+        products_id: {
+            type: DataTypes.INTEGER
+        },
+        users_id: {
+            type: DataTypes.INTEGER
+        }
     };
 
     let config = {
-        tableName: "paquetes",
+        tableName: "users_products",
         timestamps: false
     };
 
-    const paquetes = sequelize.define("paquetes", cols, config);
+    const users_products = sequelize.define("users_products", cols, config);
 
-    paquetes.associate = function(models) {
-        paquetes.belongsToMany(models.paquetes, {
-          as: "paquetes",
+    users_products.associate = function(models) {
+        users_products.belongsToMany(models.users_products, {
+          as: "users_products",
           foreignKey: "users_products"
         });
     }
 
-    return paquetes;
+    return users_products;
 
 }

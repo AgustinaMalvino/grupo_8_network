@@ -10,14 +10,14 @@
     <section class="cabecera">
             <a href="/"><img src="/images/logotipo-header.png" alt="Network - logotipo" id="logotipo-header"></a>
             <p id="titulo-principal">Network</p>
-            <div class="compras-sesion" alt="Carrito">
-                <% if(locals.isLogged.role == 'admin'){%>
+            <div class="compras-sesion" alt="nav-bar">
+                <% if(locals.isLogged && locals.userLogged.role === 'admin'){%>
                 <a href="/newProduct">
                     <div class="carrito-compras" title="Agregar producto">
-                        <i class="fas fa-plus-circle"></i>
+                        <i class="fas fa-plus-circle imagen-perfil"></i>
                     </div>
                 </a>
-                <% } else { %>
+                <% } %>
                 <% if(locals.isLogged) { %>
                 <a href="/productCart">
                     <div class="carrito-compras"  title="Carrito">
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 </a>
-                <%}}%>
+                <%}%>
             </div>
         </section>
         <section class="informacion-cabecera">

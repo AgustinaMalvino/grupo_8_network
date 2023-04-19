@@ -28,6 +28,8 @@ main h3{
     border: solid 1px var(--verde);
     background: linear-gradient(to top right, #005377, #06A77D);
     color: #FFF;
+    position: relative;
+    z-index: 1;
 }
 
 .bloque img{
@@ -36,6 +38,29 @@ main h3{
 
 .anular{
     background: linear-gradient(to top right, #f44336, #e91e63);
+}
+
+.bloque::after{
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom left, #005377, #06A77D);
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    transition: opacity 0.25s ease-out;
+    opacity: 0;
+}
+
+.bloque:hover::after{
+    opacity: 1;
+}
+
+.bloque i, .bloque p, .bloque ul, .bloque img{
+    position: relative;
+    z-index: 3;
 }
 
 .bloque:hover{
@@ -47,10 +72,22 @@ main h3{
     padding: 0.5rem 0;
 }
 
-.anular:hover{
+.anular::after{
     background: linear-gradient(to bottom left, #f44336, #e91e63);
-    height: 40vw;
     justify-content: center;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    transition: opacity 0.25s ease-out;
+    opacity: 0;
+}
+
+.anular:hover::after{
+    opacity: 1;
 }
 
 .bloque i{
@@ -68,6 +105,7 @@ main h3{
     height: 15vw;
     background-color: #FFF;
     padding: 1%;
+    z-index: 3;
 }
 
 .bloque p{
@@ -93,7 +131,11 @@ main h3{
 
 .modificar p, .eliminar p {
     padding: 0;
-    }
+}
+
+.modificar i, .eliminar i{
+    font-size: 0.75rem;
+}
 
 #servicio-a-contratar{
     font-size: large;
@@ -144,6 +186,11 @@ main h3{
         font-size: 4vw;
     }
 
+    .modificar i, .eliminar i{
+    font-size: 4vw;
+    padding-top: 6px;
+    }
+
     #servicio-a-contratar{
         font-size: x-large;
     }
@@ -171,10 +218,6 @@ main h3{
         width: 17vw;
         height: 17vw;
     }
-
-    .modificar p {
-    font-size: 1vw;
-    }
     
     .anular:hover{
         background: linear-gradient(to bottom left, #f44336, #e91e63);
@@ -188,6 +231,10 @@ main h3{
     
     .anular i{
         font-size: 10vw;
+    }
+
+    .modificar i, .eliminar i{
+    font-size: 2vw;
     }
 
     .bloque p{

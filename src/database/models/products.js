@@ -23,6 +23,12 @@ module.exports = (sequelize, DataTypes) => {
         },
         discount: {
             type: DataTypes.INTEGER
+        },
+        category_id: {
+            type: DataTypes.INTEGER
+        },
+        user_id: {
+            type: DataTypes.INTEGER
         }
     };
 
@@ -34,12 +40,12 @@ module.exports = (sequelize, DataTypes) => {
     const Products = sequelize.define("Products", cols, config);
 
     Products.associate = function(models) {
-        Users.belongsToMany(models.category, {
-          as: "products",
-          foreignKey: "user_product"
+        Products.belongsToMany(models.User, {
+          as: "User",
+          foreignKey: "product_id"
         });
     }
 
-    return Users;
+    return Products;
 
 }

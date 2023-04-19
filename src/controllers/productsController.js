@@ -1,6 +1,7 @@
-const fs = require('fs');
+const { validationResult } = require('express-validator');
 const path = require('path');
-const products = require('../models/products');
+const products = require('../models/products.js');
+const fs = require('fs');
 
 const productsController = {
 
@@ -23,43 +24,104 @@ const productsController = {
 	},
 
 	create: (req, res) => {
-		res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'));
+		const successful = null;
+		res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'), { successful });
 	},
 	
 	processCreate: (req, res) => {
+		const resultValidation = validationResult(req);
+		var successful = false;
+        if (resultValidation.errors.length > 0) {
+			return res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'), { successful,
+				errors: resultValidation.mapped(),
+				oldData: req.body
+			});
+		}
+
+        // REVISANDO QUE NO EXISTA UN PRODUCTO CON EL MISMO NOMBRE
+        let productInDB = products.findByField('name', req.body.name);
+        if (productInDB) {
+			return res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'), { successful, 
+				errors: {
+					name: {
+						msg: 'Ya existe un producto con este nombre'
+					}
+				},
+				oldData: req.body
+			});
+		}
+
+        // CREANDO EL PRODUCTO
 		let crear = {
 			...req.body
 		}
+
+		crear.price = req.body.price * 1;
+
+		if(req.file){
+            crear.image = req.file.filename;
+        } else{
+            crear.image = null;
+        }
+
+		if(req.body.offer == "true"){
+            crear.offer = true;
+			crear.discount = req.body.discount * 1;
+        } else{
+            crear.offer = false;
+        }
 		products.create(crear);
-        return res.redirect('/newProduct');
+		var successful = true;
+        return res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'), { successful });
 	},
 
 	edit: (req, res) => {
+		const successful = null;
 		let id = req.params.id;
 		let servicioFiltrado = products.findByPk(id);
-		res.render(path.resolve(__dirname, '..', 'views', 'products', 'updateProduct'), {servicioFiltrado});
+		res.render(path.resolve(__dirname, '..', 'views', 'products', 'updateProduct'), {servicioFiltrado, successful});
 	},
 
 	update: (req, res) => {
-		let servicio = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products-test.json')));
-        req.body.id = req.params.id;
-        let servicioUpdate = servicio.map(servicioBuscar =>{
-            if(servicioBuscar.id == req.body.id){
-                return servicioBuscar = req.body;
-            }
-            return servicioBuscar;
-        })
-        let servicioActualizar = JSON.stringify(servicioUpdate,null,2);
-        fs.writeFileSync(path.resolve(__dirname,'../data/products-test.json'), servicioActualizar)
-        res.redirect('/updateProducts');
+		const resultValidation = validationResult(req);
+		var successful = false;
+        if (resultValidation.errors.length > 0) {
+			return res.render(path.resolve(__dirname, '..', 'views', 'products', 'updateProduct'), { successful,
+				errors: resultValidation.mapped(),
+				oldData: req.body
+			});
+		}
+
+        // EDITANDO EL PRODUCTO
+		let id = req.params.id * 1;
+		let servicioAModificar = {
+			...req.body
+		}
+		servicioAModificar.id = id;
+		servicioAModificar.price = req.body.price * 1;
+
+		if(req.body.offer == "true"){
+            servicioAModificar.offer = true;
+			servicioAModificar.discount = req.body.discount * 1;
+        } else{
+            servicioAModificar.offer = false;
+        }
+
+		if(req.file){
+            servicioAModificar.image = req.file.filename;
+        } else{
+            servicioAModificar.image = null;
+        }
+
+		products.update(servicioAModificar, id);
+		let servicioFiltrado = products.findByPk(id);
+		var successful = true;
+		return res.render(path.resolve(__dirname, '..', 'views', 'products', 'updateProduct'), {servicioFiltrado, successful});
 	},
 
 	destroy : (req, res) => {
-		let servicio = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products-test.json')));
-        const servicioBorrarId = req.params.id;
-        const servicioFinal = servicio.filter(service => service.id != servicioBorrarId);
-        let servicioGuardar = JSON.stringify(servicioFinal,null,2)
-        fs.writeFileSync(path.resolve(__dirname, '../data/products-test.json'),servicioGuardar);
+        let servicioBorrarId = req.params.id;
+        products.delete(servicioBorrarId);
         res.redirect('/productList');
 	}
 };

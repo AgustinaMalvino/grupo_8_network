@@ -40,7 +40,7 @@ const products = {
     // BUSCA VARIOS PRODUCTOS POR UN CAMPO ESPECÍFICO
     filterByField: function(field, text){
         let allProducts = this.findAll();
-        let productsByFieldFound = allProducts.filter(oneProduct => oneProduct[field] == text);
+        let productsByFieldFound = allProducts.filter(someProducts => someProducts[field] == text);
         return productsByFieldFound;
     },
 
@@ -56,11 +56,24 @@ const products = {
         return newProduct;
     },
 
+    // EDITAR UN PRODUCTO YA EXISTENTE EN LA BASE DE DATOS
+    update: function(productData, id){
+        let allProducts = this.findAll();
+        let updateProduct = this.findByPk(id);
+        updateProduct = {
+            ...productData
+        }
+        let removeProduct = allProducts.filter(oneProduct => oneProduct.id != id);
+        removeProduct.push(updateProduct);
+        fs.writeFileSync(this.productsDataBase, JSON.stringify(removeProduct, null, 2));
+        return updateProduct;
+    },
+
     // ELIMINAR PRODUCTO EN LA BASE DE DATOS
     delete: function(id){
         let allProducts = this.findAll();
-        let finalProduct = allProducts.filter(oneProduct => oneProduct.id !== id);
-        fs.writeFileSync(this.productsDataBase, JSON.stringify(finalProduct, null, ' '));
+        let finalProduct = allProducts.filter(oneProduct => oneProduct.id != id);
+        fs.writeFileSync(this.productsDataBase, JSON.stringify(finalProduct, null, 2));
     }
 }
 

@@ -34,3 +34,10 @@ Retrospectiva del Sprint 5.
 3- Continuar haciendo: más comentarios en el código del proyecto.
 4- Hacer menos: simplificar las funciones del back-end en un mismo archivo.
 5- Dejar de hacer: muchos commits.
+
+Retrospectiva del Sprint 6.
+1- Comenzar a hacer: mejorar la experiencia del usuario, usando JavaScript desde el front-end.
+2- Hacer más: refinar (mejorar) el código del back-end de sprints anteriores.
+3- Continuar haciendo: pruebas en el proyecto.
+4- Hacer menos: usar funciones básicas para el manejo de arrays, en su lugar usar funciones para arrays.
+5- Dejar de hacer: agregar más funciones al proyecto.

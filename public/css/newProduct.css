@@ -1,5 +1,24 @@
 @import url(/public/css/styles.css);
 
+/*EFECTO DE DESVANECIMIENTO*/
+
+#mensaje-satisfactorio, #mensaje-error {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+select{
+    border-color: var(--negro);
+}
+
+#nombre-producto, #precio, #descuento{
+    border-style: solid;
+    border-width: 2px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+    width: 25%;
+}
 
 main{
     display: flex;
@@ -13,35 +32,26 @@ h1{
     color: var(--negro);
 }
 
-form{
+.formulario{
     width: 90vw;
 }
 
 .seccion-formulario{
-    padding: 1rem 0;
+    padding-top: 2rem;
     display: flex;
     align-items: center;
-}
-
-#nombre-producto, #precio, #descuento{
-    border: solid 2px;
-    text-align: center;
-    border-radius: 10px;
-    border-color: var(--negro);
-    padding: 2px;
-    width: 25%;
 }
 
 textarea{
     border: solid 2px;
     border-radius: 10px;
-    border-color: var(--negro);
-    padding: 2px;
+    padding: 5px;
 }
 
 #categoria{
     border-radius: 10px;
-    border: solid var(--negro) 2px;
+    border-style: solid;
+    border-width: 2px;
     text-align: center;
     padding: 2px;
 }
@@ -96,7 +106,7 @@ label{
 
 /* compu */
 @media (min-width:860px){
-    form{
+    .formulario{
     width: auto;
     }
 

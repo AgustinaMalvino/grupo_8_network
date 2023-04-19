@@ -118,7 +118,8 @@
                 <ul class="nav-izq-der">
                 <li><div class="contra">
                     <label>Contraseña:</label>
-                    <input type="password" name="password" required class="<%- locals.errors && errors.last_name ? 'input-error' : null %>">
+                    <input type="password" name="password" id="password" required class="<%- locals.errors && errors.password ? 'input-error' : null %>">
+                    <div id="validation"></div>
                     <% if(locals.errors && errors.password){%>
                     <span class="validation-error">
                         <i class="fas fa-exclamation-circle"></i>
@@ -138,7 +139,7 @@
                 <ul class="nav-izq-der">
                 <li><div class="confir-contra">
                     <label>Confirmar contraseña:</label>
-                    <input type="password" name="confirm_password" required class="<%- locals.errors && errors.last_name ? 'input-error' : null %>">
+                    <input type="password" name="confirm_password" required class="<%- locals.errors && errors.confirm_password ? 'input-error' : null %>">
                     <% if(locals.errors && errors.confirm_password){%>
                     <span class="validation-error">
                         <i class="fas fa-exclamation-circle"></i>
@@ -164,7 +165,7 @@
                 <!--NOTIFICACIONES-->
                 <div class = 'notificacion'>
                     <label for="notificaciones">Acepto recibir notificaciones de actualizaciones y promociones a mi correo</label>
-                    <input type="checkbox" <%- (locals.oldData && oldData.notificaciones == "on") ? 'checked' : null %> name="notificaciones">                    
+                    <input type="checkbox" <%- (locals.oldData && oldData.notificaciones == "on") ? 'checked' : null %> name="notifications">                    
                 </div>
             <!--BOTONES-->
                 <div class="botones">
@@ -183,5 +184,6 @@
     <footer>
         <%- include("../partials/footer") %>
     </footer>
+    <script src="/js/passwordValidation.js"></script>
 </body>
 </html>

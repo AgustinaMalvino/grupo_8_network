@@ -35,8 +35,12 @@ const registerController = {
         let crear = {
             ...req.body,
             password: bcryptjs.hashSync(req.body.password, 10),
-            image: req.file.filename,
             role: 'user'
+        }
+        if(req.file){
+            crear.image = req.file.filename;
+        } else{
+            crear.image = null;
         }
         users.create(crear);
         return res.redirect('login');

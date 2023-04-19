@@ -27,17 +27,36 @@
 .validation-warning{
     color: var(--amarillo);
     font-size: 1rem;
+    position: relative;
+    border-left: 4px solid var(--amarillo);
+    padding: 8px;
+    margin: 8px 0;
+    background: rgba(241, 162, 8, 0.1);
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .validation-success{
     color: var(--verde);
+    position: relative;
+    border-left: 4px solid var(--verde);
+    padding: 8px;
+    margin: 8px 0;
+    background: rgba(6, 167, 125, 0.1);
     font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .input-error{
-    border-style: solid;
-    border-width: 2px;
-    border-color: #f44336;
+    border: 2px solid #f44336;
+}
+
+.input-error:focus{
+    border: 2px solid #f44336;
 }
 
 /* MAIN */

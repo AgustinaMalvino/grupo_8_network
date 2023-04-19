@@ -1300,11 +1300,35 @@
   "image": "https://robohash.org/quivelitdignissimos.png?size=50x50&set=set1"
  },
  {
+  "id": 101
+ },
+ {
+  "id": 102
+ },
+ {
+  "id": 103
+ },
+ {
+  "id": 104
+ },
+ {
+  "id": 105
+ },
+ {
+  "id": 106
+ },
+ {
+  "id": 107
+ },
+ {
+  "id": 108
+ },
+ {
   "id": 109,
   "Nombre": "agustina",
   "Apellido": "malvino",
   "Domicilio": "sor",
-  "email": "agustinamalvino@gmail.com",
+  "Email": "agustinamalvino@gmail.com",
   "Imagen": "",
   "DNI": "42403000",
   "sexo": "Femenino",
@@ -1316,7 +1340,7 @@
   "Nombre": "fede",
   "Apellido": "diganchi",
   "Domicilio": "ssjfbb",
-  "email": "fedeq@gmail.com",
+  "Email": "fedeq@gmail.com",
   "Imagen": "factura luz_edesur.jpeg",
   "DNI": "42403000",
   "sexo": "Masculino",
@@ -1329,7 +1353,7 @@
   "Nombre": "franco",
   "Apellido": "malvino",
   "Domicilio": "sor picardo",
-  "email": "franco@gmail.com",
+  "Email": "franco@gmail.com",
   "Imagen": "3. enero 23.pdf",
   "DNI": "12262332",
   "sexo": "Masculino",

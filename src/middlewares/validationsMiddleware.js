@@ -1,4 +1,5 @@
 const { body } = require("express-validator");
+const path = require('path');
 
 module.exports = [
     body('email')
@@ -12,5 +13,17 @@ module.exports = [
     body('birth_date').notEmpty().withMessage('Ingrese su fecha de nacimiento'),
     body('password').notEmpty().withMessage('Escriba una contraseña'),
     body('confirm_password').notEmpty().withMessage('Las contraseñas no coinciden o son invalidas, por favor, vuelva a definir su contraseña'),
-    body('condiciones').isIn(['on']).withMessage('Tienes que aceptar los términos y condiciones para registrarte')
+    body('condiciones').isIn(['on']).withMessage('Tienes que aceptar los términos y condiciones para registrarte'),
+    body('image').custom((value, { req }) => {
+		let file = req.file;
+		let acceptedExtensions = ['.jpg', '.png', '.gif'];
+
+		if (file) {
+			let fileExtension = path.extname(file.originalname);
+			if (!acceptedExtensions.includes(fileExtension)) {
+				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+			}
+		} else {return true}
+		return true;
+        })
 ];
