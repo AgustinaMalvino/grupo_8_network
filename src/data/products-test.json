@@ -118,14 +118,5 @@
     "price": 399,
     "offer": false,
     "discount": 0
-  },
-  {
-    "image": null,
-    "name": "Cable clásico2",
-    "description": "ssssa",
-    "category": "Cable",
-    "price": 23,
-    "offer": false,
-    "id": 13
   }
 ]

@@ -2,7 +2,10 @@ const { validationResult } = require('express-validator');
 const path = require('path');
 const products = require('../models/products.js');
 const fs = require('fs');
-
+const db = require('../database/models/');
+const Product = db.Product;
+const Category = db.Category;
+const Op = db.Sequelize.Op;
 const productsController = {
 
 	productList: (req, res) => {
@@ -37,6 +40,7 @@ const productsController = {
 				oldData: req.body
 			});
 		}
+		/*
 
         // REVISANDO QUE NO EXISTA UN PRODUCTO CON EL MISMO NOMBRE
         let productInDB = products.findByField('name', req.body.name);
@@ -50,6 +54,7 @@ const productsController = {
 				oldData: req.body
 			});
 		}
+		*/
 
         // CREANDO EL PRODUCTO
 		let crear = {
@@ -70,7 +75,10 @@ const productsController = {
         } else{
             crear.offer = false;
         }
-		products.create(crear);
+		Product.create(crear)
+        .then(product =>{
+            return true
+        })
 		var successful = true;
         return res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'), { successful });
 	},

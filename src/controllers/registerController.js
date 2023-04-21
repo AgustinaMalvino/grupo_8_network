@@ -1,14 +1,16 @@
 const { validationResult } = require('express-validator');
 const users = require('../models/users.js');
 const bcryptjs = require('bcryptjs');
-const path = require('path')
+const path = require('path');
+const db = require('../database/models/');
+const User = db.User;
 
 const registerController = {
     register: (req, res) => {
         res.render(path.resolve(__dirname, '../views/users/register.ejs'))
     },
    
-    create: (req, res) => {
+    create: async (req, res) => {
         // REVISANDO ERRORES EN EL FORMULARIO
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {
@@ -19,7 +21,7 @@ const registerController = {
 		}
 
         // REVISANDO EL MAIL QUE SE VA A REGISTRAR
-        let userInDB = users.findByField('email', req.body.email);
+        let userInDB = await User.findOne({ where: { email: req.body.email } });
         if (userInDB) {
 			return res.render(path.resolve(__dirname, '../views/users/register.ejs'), {
 				errors: {
@@ -42,7 +44,12 @@ const registerController = {
         } else{
             crear.image = null;
         }
-        users.create(crear);
+        User
+        .create(crear)
+        .then((storedUser) => {
+          return  res.redirect('/login');
+        })
+      .catch(error => console.log(error));
         return res.redirect('login');
     }
 }
