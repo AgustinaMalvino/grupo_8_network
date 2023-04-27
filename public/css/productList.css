@@ -165,10 +165,12 @@ main h3{
 
 .bronce{
     color: var(--arena);
+    fill: var(--arena);
 }
 
 .oro{
     color: var(--amarillo);
+    fill: var(--amarillo);
 }
 
 /* TABLET */

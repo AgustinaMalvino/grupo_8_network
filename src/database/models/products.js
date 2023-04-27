@@ -23,24 +23,25 @@ module.exports = (sequelize, DataTypes) => {
         },
         discount: {
             type: DataTypes.INTEGER
+        },
+        categoryId: {
+            type: DataTypes.INTEGER
         }
     };
 
     let config = {
         tableName: "products",
-        timestamps: false
+        timestamps: false,
+        underscore: true
     };
-
     const Product = sequelize.define(alias, cols, config);
 
-    /*
-    Products.associate = function(models) {
-        Products.belongsToMany(models.User, {
-          as: "User",
-          foreignKey: "product_id"
+    Product.associate = function(models) {
+        Product.belongsTo(models.Category, {
+          as: "Category",
+          foreignKey: "categoryId"
         });
     }
-    */
 
     return Product;
 

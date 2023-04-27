@@ -12,7 +12,7 @@
     </header>
     <main>
         <h1>Completa el siguiente formulario para agregar un nuevo producto/servicio a su sitio</h1>
-        <form action="/newProduct" method="post" enctype="multipart/form-data" class="formulario">
+        <form action="/newProduct" method="post" class="formulario" enctype="multipart/form-data">
             <% if(successful){%>
                     <span class="validation-success" id="mensaje-satisfactorio">
                         <i class="fas fa-check-circle"></i>
@@ -28,6 +28,12 @@
                 <label>Seleccione o suba una imagen/ícono que identifique al producto:</label>
                 <input type="file" name="image">
             </div>
+            <% if(locals.errors && errors.image){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.image.msg %>
+                    </span>
+                 <%}%>
             <div class="seccion-formulario">
                 <label>Escriba el nombre del producto:</label>
                 <input type="text" name="name" id="nombre-producto" value="<%= locals.oldData ? oldData.name : null %>" <%- locals.errors && errors.name ? 'class="input-error"' : null %>>

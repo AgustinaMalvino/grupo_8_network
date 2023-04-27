@@ -20,8 +20,9 @@ const registerController = {
 			});
 		}
 
-        // REVISANDO EL MAIL QUE SE VA A REGISTRAR
+        // REVISANDO EL MAIL Y DNI QUE SE VA A REGISTRAR
         let userInDB = await User.findOne({ where: { email: req.body.email } });
+        let dniInDB = await User.findOne({ where: { DNI: req.body.DNI } });
         if (userInDB) {
 			return res.render(path.resolve(__dirname, '../views/users/register.ejs'), {
 				errors: {
@@ -32,11 +33,22 @@ const registerController = {
 				oldData: req.body
 			});
 		}
+        if (dniInDB) {
+			return res.render(path.resolve(__dirname, '../views/users/register.ejs'), {
+				errors: {
+					DNI: {
+                        msg: 'Este número de documento ya está registrado'
+                    }
+				},
+				oldData: req.body
+			});
+		}
 
         // CREANDO EL USUARIO
         let crear = {
             ...req.body,
             password: bcryptjs.hashSync(req.body.password, 10),
+            birth_date: req.body.birth_date,
             role: 'user'
         }
         if(req.file){

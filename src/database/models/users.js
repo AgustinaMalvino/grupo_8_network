@@ -13,13 +13,21 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
         DNI: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            unique: true
         },
         email: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            unique: true
         },
         gender: {
             type: DataTypes.STRING
+        },
+        address: {
+            type: DataTypes.STRING
+        },
+        birth_date: {
+            type: DataTypes.DATE
         },
         password: {
             type: DataTypes.STRING
@@ -34,7 +42,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         }
     };
-
     
     let config = {
         tableName: "users",

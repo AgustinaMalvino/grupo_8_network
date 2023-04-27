@@ -62,7 +62,7 @@
 
                 <div class = 'notificacion'>
                     <label for="notificaciones">Acepto recibir notificaciones de actualizaciones y promociones a mi correo</label>
-                    <input type="checkbox" name="notificaciones">                    
+                    <input type="checkbox" name="notificaciones" <%- (user.notifications == 1 || user.notifications == "true") ? 'checked' : null %>>                    
                 </div>
 
                 <div class="botones">

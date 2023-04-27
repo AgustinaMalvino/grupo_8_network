@@ -16,5 +16,19 @@ module.exports = [
             } else if(req.body.discount < 0 && req.body.discount > 100){
                 throw new Error('Escriba un porcentaje de descuento entre los valores del 0 al 100%')
             } else {return true}
-        })
+        }),
+    body('image')
+        .custom((value, { req }) => {
+		let file = req.file;
+		let acceptedExtensions = ['.jpg', '.png', '.gif', '.svg'];
+
+		if (!file) {
+            throw new Error('Tiene que subir una imagen para publicar el producto/servicio');
+		} else {
+            let fileExtension = path.extname(file.originalname);
+			if (!acceptedExtensions.includes(fileExtension)) {
+				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+            }
+		return true;
+        }})
 ];

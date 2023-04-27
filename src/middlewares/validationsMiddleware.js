@@ -16,7 +16,7 @@ module.exports = [
     body('condiciones').isIn(['on']).withMessage('Tienes que aceptar los términos y condiciones para registrarte'),
     body('image').custom((value, { req }) => {
 		let file = req.file;
-		let acceptedExtensions = ['.jpg', '.png', '.gif'];
+		let acceptedExtensions = ['.jpg', '.png', '.gif', '.svg'];
 
 		if (file) {
 			let fileExtension = path.extname(file.originalname);

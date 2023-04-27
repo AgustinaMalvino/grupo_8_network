@@ -14,7 +14,7 @@
     </header>
     <main>
         <h1>Modifique el siguiente formulario del producto/servicio seleccionado</h1>
-        <form action="/<%= servicioFiltrado.id%>/edit?_method=PUT" method="POST">
+        <form action="/<%= productos.id%>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
             <% if(successful){%>
                     <span class="validation-success" id="mensaje-satisfactorio">
                         <i class="fas fa-check-circle"></i>
@@ -30,9 +30,15 @@
                 <label>Seleccione o suba una imagen/ícono que identifique al producto:</label>
                 <input type="file" name="image">
             </div>
+            <% if(locals.errors && errors.image){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.image.msg %>
+                    </span>
+                 <%}%>
             <div class="seccion-formulario">
                 <label>Nuevo nombre del producto:</label>
-                <input type="text" name="name" id="nombre-producto" value="<%= locals.oldData ? oldData.name :  servicioFiltrado.name%>" <%- locals.errors && errors.name ? 'class="input-error"' : null %> required>
+                <input type="text" name="name" id="nombre-producto" value="<%= locals.oldData ? oldData.name :  productos.name%>" <%- locals.errors && errors.name ? 'class="input-error"' : null %> required>
             </div>
             <% if(locals.errors && errors.name){%>
                     <span class="validation-error">
@@ -42,7 +48,7 @@
                  <%}%>
             <div class="seccion-formulario">
                 <label>Nueva descripción acerca del producto:</label>
-                <textarea name="description" id="descripcion-producto" cols="50" rows="2" required <%- locals.errors && errors.description ? 'class="input-error"' : null %>><%= servicioFiltrado.description%></textarea>
+                <textarea name="description" id="descripcion-producto" cols="50" rows="2" required <%- locals.errors && errors.description ? 'class="input-error"' : null %>><%= productos.description%></textarea>
             </div>
             <% if(locals.errors && errors.description){%>
                     <span class="validation-error">
@@ -54,8 +60,10 @@
                 <label>Seleccione la categoria del producto:</label>
                 <select name="category" id="categoria" required <%- locals.errors && errors.category ? 'class="input-error"' : null %>>
                     <% let categories=['Cable', 'Internet', 'Paquetes', 'Aplicaciones']; %>
+                    <% let valor = 1 %>
                     <% for (const oneCategory of categories) { %>
-                        <option value="<%= oneCategory %>" <%= (oneCategory === servicioFiltrado.category) ? 'selected' : null %> > <%= oneCategory %> </option>
+                        <option value="<%= oneCategory %>" <%= (valor === productos.categoryId) ? 'selected' : null %> > <%= oneCategory %> </option>
+                        <% valor = valor + 1 %>
                         <% } %>
                 </select>
             </div>
@@ -67,7 +75,7 @@
                  <%}%>
             <div class="seccion-formulario">
                 <label>Escriba nuevo precio del producto:</label>
-                <input type="number" name="price" id="precio" min="1" required value="<%= servicioFiltrado.price%>" <%- locals.errors && errors.price ? 'class="input-error"' : null %>>
+                <input type="number" name="price" id="precio" min="1" required value="<%= productos.price%>" <%- locals.errors && errors.price ? 'class="input-error"' : null %>>
             </div>
             <% if(locals.errors && errors.price){%>
                     <span class="validation-error">
@@ -79,14 +87,14 @@
                 <p>¿Quiere agregar un descuento al producto?:</p>
                 <div class="opciones-radio">
                     <label>Si</label>
-                    <input type="radio" name="offer" value="true" id="yes" <%=servicioFiltrado.offer == true ? 'checked' : null %>>
+                    <input type="radio" name="offer" value="true" id="yes" <%=productos.offer == true ? 'checked' : null %>>
                 </div>
                 <div class="opciones-radio">
                     <label>No</label>
-                    <input type="radio" name="offer" value="false" id="no" <%=servicioFiltrado.offer == false ? 'checked' : null %>>
+                    <input type="radio" name="offer" value="false" id="no" <%=productos.offer == false ? 'checked' : null %>>
                 </div>
                 <label>Escriba porcentaje del descuento:</label>
-                <input type="number" name="discount" id="descuento" min="0" max="100" <%- locals.errors && errors.offer ? 'class="input-error"' : null %> value="<%= servicioFiltrado.discount%>">
+                <input type="number" name="discount" id="descuento" min="0" max="100" <%- locals.errors && errors.offer ? 'class="input-error"' : null %> value="<%= productos.discount%>">
             </div>
             <% if(locals.errors && errors.offer){%>
                     <span class="validation-error">

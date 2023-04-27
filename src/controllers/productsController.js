@@ -1,25 +1,53 @@
 const { validationResult } = require('express-validator');
 const path = require('path');
 const products = require('../models/products.js');
-const fs = require('fs');
 const db = require('../database/models/');
 const Product = db.Product;
 const Category = db.Category;
 const Op = db.Sequelize.Op;
+
 const productsController = {
 
-	productList: (req, res) => {
-		let productosCable = products.filterByField('category', 'Cable')
-		let productosInternet = products.filterByField('category', 'Internet')
-		let productosPaquetes = products.filterByField('category', 'Paquetes')
-		let productosAplicaciones = products.filterByField('category', 'Aplicaciones')
+	productList: async (req, res) => {
+		try {
+			let productosCable = await Product.findAll({
+			include: [{
+				model: Category,
+				as: 'Category',
+				where: { name: 'Cable' }
+			}]
+		});
+		let productosInternet = await Product.findAll({
+			include: [{
+				model: Category,
+				as: 'Category',
+				where: { name: 'Internet' }
+			}]
+		});
+		let productosPaquetes = await Product.findAll({
+			include: [{
+				model: Category,
+				as: 'Category',
+				where: { name: 'Paquetes' }
+			}]
+		});
+		let productosAplicaciones = await Product.findAll({
+			include: [{
+				model: Category,
+				as: 'Category',
+				where: { name: 'Aplicaciones' }
+			}]
+		});
 
-		res.render(path.resolve(__dirname, '..', 'views', 'products', 'productList'), {
+		return res.render(path.resolve(__dirname, '..', 'views', 'products', 'productList'), {
 			cable: productosCable,
 			internet: productosInternet,
 			paquetes: productosPaquetes,
 			aplicaciones: productosAplicaciones,
 		});
+		} catch (error) {
+      console.log(error);
+    }
 	},
 
 	productCart: (req, res) => {
@@ -31,7 +59,7 @@ const productsController = {
 		res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'), { successful });
 	},
 	
-	processCreate: (req, res) => {
+	processCreate: async (req, res) => {
 		const resultValidation = validationResult(req);
 		var successful = false;
         if (resultValidation.errors.length > 0) {
@@ -40,10 +68,9 @@ const productsController = {
 				oldData: req.body
 			});
 		}
-		/*
 
         // REVISANDO QUE NO EXISTA UN PRODUCTO CON EL MISMO NOMBRE
-        let productInDB = products.findByField('name', req.body.name);
+        let productInDB = await Product.findOne({ where: { name: req.body.name } });
         if (productInDB) {
 			return res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'), { successful, 
 				errors: {
@@ -54,7 +81,6 @@ const productsController = {
 				oldData: req.body
 			});
 		}
-		*/
 
         // CREANDO EL PRODUCTO
 		let crear = {
@@ -65,8 +91,8 @@ const productsController = {
 
 		if(req.file){
             crear.image = req.file.filename;
-        } else{
-            crear.image = null;
+        } else {
+            crear.image = "tv.svg";
         }
 
 		if(req.body.offer == "true"){
@@ -75,19 +101,33 @@ const productsController = {
         } else{
             crear.offer = false;
         }
+
+		switch (req.body.category){
+			case "Cable":
+				crear.categoryId = 1;
+				break;
+			case "Internet":
+				crear.categoryId = 2;
+				break;
+			case "Paquetes":
+				crear.categoryId = 3;
+				break;
+			case "Aplicaciones":
+				crear.categoryId = 2;
+				break;
+		}
+		var successful = true
 		Product.create(crear)
-        .then(product =>{
-            return true
-        })
-		var successful = true;
-        return res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'), { successful });
-	},
+        .then(productos =>{
+            return res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'), { successful })
+		})},
 
 	edit: (req, res) => {
 		const successful = null;
-		let id = req.params.id;
-		let servicioFiltrado = products.findByPk(id);
-		res.render(path.resolve(__dirname, '..', 'views', 'products', 'updateProduct'), {servicioFiltrado, successful});
+        Product.findOne({ where: { id: req.params.id } })
+        .then((productos) =>{
+            res.render(path.resolve(__dirname, '..', 'views', 'products', 'updateProduct'), {productos, successful})})
+        .catch(error => res.send(error))
 	},
 
 	update: (req, res) => {
@@ -118,19 +158,44 @@ const productsController = {
 		if(req.file){
             servicioAModificar.image = req.file.filename;
         } else{
-            servicioAModificar.image = null;
+            servicioAModificar.image = "tv.svg";
         }
 
-		products.update(servicioAModificar, id);
-		let servicioFiltrado = products.findByPk(id);
+		switch (req.body.category){
+			case "Cable":
+				servicioAModificar.categoryId = 1;
+				break;
+			case "Internet":
+				servicioAModificar.categoryId = 2;
+				break;
+			case "Paquetes":
+				servicioAModificar.categoryId = 3;
+				break;
+			case "Aplicaciones":
+				servicioAModificar.categoryId = 2;
+				break;
+		}
+
+		Product.update(servicioAModificar, {
+                where: {
+                    id: req.params.id
+               }
+            });
 		var successful = true;
-		return res.render(path.resolve(__dirname, '..', 'views', 'products', 'updateProduct'), {servicioFiltrado, successful});
+        Product.findOne({ where: { id: req.params.id } })
+        	.then((productos) =>{
+            res.render(path.resolve(__dirname, '..', 'views', 'products', 'updateProduct'), {productos, successful})})
+        	.catch(error => res.send(error))
 	},
 
 	destroy : (req, res) => {
-        let servicioBorrarId = req.params.id;
-        products.delete(servicioBorrarId);
-        res.redirect('/productList');
+        Product.destroy({
+            where: {
+                id : req.params.id
+            }
+        })
+        .then(()=>  res.redirect('/productList'))
+        .catch(error => res.send(error))
 	}
 };
 
