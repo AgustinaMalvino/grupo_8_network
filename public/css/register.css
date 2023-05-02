@@ -176,6 +176,20 @@ button{
     font-size: 60px;
 }
 
+.password-inputs{
+    color: #FFF;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contra{
+    width: 100%;
+    padding-bottom: 1rem;
+}
+
 /* tablet */
 @media (min-width: 410px){
     nav{

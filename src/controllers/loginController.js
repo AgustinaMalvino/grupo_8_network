@@ -74,7 +74,7 @@ const loginController = {
 				.catch(error => res.send(error))
 		}
 
-        // EDITANDO EL PRODUCTO
+        // EDITANDO EL PERFIL
 		let id = req.session.userLogged.id * 1;
 		let usuarioAModificar = {
 			...req.body
@@ -93,8 +93,6 @@ const loginController = {
             usuarioAModificar.notifications = 1
         } else{ usuarioAModificar.notifications = 0}
 
-        console.log(usuarioAModificar)
-
         //GUARDANDO CAMBIOS
 		User.update(usuarioAModificar, {
 			where: {
@@ -109,7 +107,56 @@ const loginController = {
 				res.render(path.resolve(__dirname, '..', 'views', 'users', 'profileEdit'), { user: req.body, successful })
 			})
 			.catch(error => res.send(error))
-    }
+    },
+
+    changePassword: (req, res) => {
+        var successful = null;
+        User.findOne({ where: { id: req.session.userLogged.id } })
+			.then((user) => {
+				res.render(path.resolve(__dirname, '..', 'views', 'users', 'changePassword'), {successful});
+                res.clearCookie('email');
+                req.session.destroy();
+			})
+			.catch(error => res.send(error))
+    },
+
+    updatePassword: async (req, res) => {
+		var successful = false;
+		let userInDB = await User.findOne({ where: { id: req.session.userLogged.id } });
+        let passwordOk = bcryptjs.compareSync(req.body.oldPassword, userInDB.dataValues.password);
+
+        if (passwordOk) {
+            if (req.body.password == req.body.confirm_password) {
+                let newPassword = { password: bcryptjs.hashSync(req.body.password, 10) }
+                User.update(newPassword, { where: {id: req.session.userLogged.id}});
+                res.clearCookie('email');
+                req.session.destroy();
+                var successful = true;
+                return res.render(path.resolve(__dirname, '..', 'views', 'users', 'changePassword'), {successful})
+            }
+        } else {
+            var successful = false;
+            return res.render(path.resolve(__dirname, '../views/users/changePassword.ejs'), { successful,
+				errors: {
+					confirm_password: {
+						msg: 'Las credenciales son inválidas'
+					}
+				}});
+        }
+    },
+
+    deleteUser: (req, res) => {
+		User.destroy({
+			where: {
+				id: req.session.userLogged.id
+			}
+		})
+			.then(() => {
+                res.clearCookie('email');
+                req.session.destroy();
+                res.redirect('/')})
+			.catch(error => res.send(error))
+	}
 
 }
 
