@@ -114,14 +114,21 @@ const loginController = {
         User.findOne({ where: { id: req.session.userLogged.id } })
 			.then((user) => {
 				res.render(path.resolve(__dirname, '..', 'views', 'users', 'changePassword'), {successful});
-                res.clearCookie('email');
-                req.session.destroy();
 			})
 			.catch(error => res.send(error))
     },
 
     updatePassword: async (req, res) => {
-		var successful = false;
+        var successful = false;
+        const resultValidation = validationResult(req);
+        console.log(resultValidation)
+		if (resultValidation.errors.length > 0) {
+					return res.render(path.resolve(__dirname, '..', 'views', 'users', 'changePassword'), {
+						successful,  
+						errors: resultValidation.mapped(),
+						oldData: req.body
+					})
+				}
 		let userInDB = await User.findOne({ where: { id: req.session.userLogged.id } });
         let passwordOk = bcryptjs.compareSync(req.body.oldPassword, userInDB.dataValues.password);
 

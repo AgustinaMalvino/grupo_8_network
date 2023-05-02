@@ -3,7 +3,8 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const loginController = require('../controllers/loginController');
-const validations = require('../middlewares/validationsMiddleware')
+const validations = require('../middlewares/validationsMiddleware');
+const passwordValidations = require('../middlewares/passwordValidation');
 
 // MIDDLEWARES DE RUTAS
 const guestMiddleware = require('../middlewares/guestMiddleware');
@@ -34,7 +35,7 @@ router.get('/profile', authMiddleware, loginController.profile);
 router.get('/profile/editar', authMiddleware, loginController.edit);
 router.post('/profile/editar', uploadFile.single('image'), validations, loginController.update);
 router.get('/profile/changePassword', authMiddleware, loginController.changePassword);
-router.put('/profile/changePassword', validations, authMiddleware, loginController.updatePassword);
+router.put('/profile/changePassword', passwordValidations, authMiddleware, loginController.updatePassword);
 router.get('/profile/deleteUser', authMiddleware, loginController.deleteUser);
 router.post('/', loginController.logout);
 

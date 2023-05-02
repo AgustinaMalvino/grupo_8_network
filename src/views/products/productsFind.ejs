@@ -44,6 +44,14 @@
                             </div>
                         </a>
                         <% } %>
+                        <% if(locals.isLogged && locals.userLogged.role === 'user') { %>
+                        <a href="/productCart">
+                        <div class="agregar">
+                            <i class="fas fa-cart-plus"></i>
+                            <p>Agregar servicio</p>
+                        </div>
+                        </a>
+                        <% } %>
                     </ul>
                 </div>
                 <% }) %>
