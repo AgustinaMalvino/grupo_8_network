@@ -59,7 +59,7 @@ const registerController = {
         User
         .create(crear)
         .then((storedUser) => {
-          return  res.redirect('/login');
+            return  res.redirect('/login');
         })
       .catch(error => console.log(error));
         return res.redirect('login');

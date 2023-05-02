@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("../partials/head", {cssSheet: "register", title: "Editar perfil"}) %>
+</head>
+<body>
+    <header>
+        <%- include("../partials/header") %>
+    </header>
+    <main>
+        <div class="main">
+        <label><h2>Acá podés modificar o actualizar tu información</h2></label>
+        <% if(successful){%>
+                    <span class="validation-success" id="mensaje-satisfactorio">
+                        <i class="fas fa-check-circle"></i>
+                        <p>¡Tu información se modificó con exito!</p>
+                    </span>
+                 <%} else if (successful != null){%>
+                    <span class="validation-warning" id="mensaje-error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>No se puede modificar tu información debido a unos errores en el formulario, revise los mensajes debajo de los campos</p>
+                    </span>
+                 <%}%>
+        <form action="/profile/editar" method="post" class="register" enctype="multipart/form-data">
+            <nav>
+                <!--INPUT DE NOMBRE-->
+                <ul class="nav-izq-der">
+                <li><div class = 'nombre'>
+                    <label>Nombre:</label>
+                    <input type="text" name="first_name" id="nombre" required minlength="2" value="<%= locals.oldData ? oldData.first_name : user.first_name %>" class="<%- locals.errors && errors.first_name ? 'input-error' : null %>">
+                    <div id="firstNameValidation"></div>
+                    <% if(locals.errors && errors.first_name){%>
+                    <span class="validation-error" id="nombreError">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.first_name.msg %>
+                    </span>
+                 <%}%>
+                </div></li>
+                </ul>
+                <!--INPUT DE APELLIDO-->
+                <ul class="nav-izq-der">
+                <li><div class="apellido">
+                    <label>Apellido:</label>
+                    <input type="text" name="last_name" id="apellido" required minlength="2" value="<%= locals.oldData ? oldData.last_name : user.last_name %>" class="<%- locals.errors && errors.last_name ? 'input-error' : null %>">
+                    <div id="lastNameValidation"></div>
+                    <% if(locals.errors && errors.last_name){%>
+                    <span class="validation-error" id="apellidoError">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.last_name.msg %>
+                    </span>
+                 <%}%>
+                </div></li>
+                </ul>
+                <!--INPUT DE DOMICILIO-->
+                <ul class="nav-izq-der">
+                <li><div class = 'dom'>
+                    <label>Domicilio:</label>
+                    <input type="text" name="address" id="domicilio" required minlength="3" value="<%= locals.oldData ? oldData.address : user.address %>" class="<%- locals.errors && errors.address ? 'input-error' : null %>">
+                    <% if(locals.errors && errors.address){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.address.msg %>
+                    </span>
+                 <%}%> 
+                </div></li>
+                </ul>
+                <!--INPUT DE CORREO ELECTRÓNICO-->
+                <ul class="nav-izq-der">
+                <li><div class="correo">
+                    <label>Correo eléctronico:</label>
+                    <input type="email" name="email" id="email" required minlength="8" value="<%= locals.oldData ? oldData.email : user.email %>" class="<%- locals.errors && errors.email ? 'input-error' : null %>">
+                    <% if(locals.errors && errors.email){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.email.msg %>
+                    </span>
+                 <%}%>
+                </div></li>
+                </ul>
+                <!--INPUT DE GÉNERO-->
+                <ul class="nav-izq-der">
+                <li><div class="sexo">
+                    <label>Género:</label>
+                        <select name="gender" id="sexo" required class="<%- locals.errors && errors.gender ? 'input-error' : null %>">
+                            <option value="">Elegí tu género</option>
+                            <% let generos=['Femenino', 'Masculino' , 'X' ]; %>
+                                <% for (const oneGender of generos) { %>
+                                    <option value="<%= oneGender %>" <%=(locals.oldData && (oneGender===oldData.gender) || user.gender === oneGender) ? 'selected' : null %> >
+                                        <%= oneGender %>
+                                    </option>
+                                    <% } %>
+                        </select>
+                        <% if(locals.errors && errors.gender){%>
+                    <span class="validation-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <%= errors.gender.msg %>
+                    </span>
+                 <%}%> 
+                </div></li>
+                </ul>
+                <!--INPUT DE IMAGEN DE PERFIL-->
+                <ul class="nav-izq-der">
+                <li><div class = 'tel'>
+                    <label>Imagen de perfil:</label>
+                    <input type="file" name="image" accept=".jpg" enctype="multipart/form-data">
+                </div></li>
+                </ul>
+            </nav>
+            </ul>
+            <!--INPUTS DE CHECKBOXES-->
+                <!--NOTIFICACIONES-->
+                <div class = 'notificacion'>
+                    <label for="notificaciones">Acepto recibir notificaciones de actualizaciones y promociones a mi correo</label>
+                    <input type="checkbox" <%- ((locals.oldData && oldData.notifications) == true || user.notifications == true) ? 'checked' : null %> name="notifications">                    
+                </div>
+            <!--BOTONES-->
+                <div class="botones">
+                <div class="boton">
+                    <button type="submit">Editar información</button>
+                </div>
+                <div class="boton-borrar">
+                    <button type="reset"> Borrar</button>
+                </div>
+                </div>
+                </div>
+        </form>
+    </div>
+    </div>
+    </main>
+    <footer>
+        <%- include("../partials/footer") %>
+    </footer>
+    <script src="/js/namesValidations.js"></script>
+</body>
+</html>

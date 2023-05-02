@@ -2,6 +2,7 @@ const { validationResult } = require('express-validator');
 const path = require('path');
 const products = require('../models/products.js');
 const db = require('../database/models/');
+const { assert } = require('console');
 const Product = db.Product;
 const Category = db.Category;
 const Op = db.Sequelize.Op;
@@ -11,43 +12,43 @@ const productsController = {
 	productList: async (req, res) => {
 		try {
 			let productosCable = await Product.findAll({
-			include: [{
-				model: Category,
-				as: 'Category',
-				where: { name: 'Cable' }
-			}]
-		});
-		let productosInternet = await Product.findAll({
-			include: [{
-				model: Category,
-				as: 'Category',
-				where: { name: 'Internet' }
-			}]
-		});
-		let productosPaquetes = await Product.findAll({
-			include: [{
-				model: Category,
-				as: 'Category',
-				where: { name: 'Paquetes' }
-			}]
-		});
-		let productosAplicaciones = await Product.findAll({
-			include: [{
-				model: Category,
-				as: 'Category',
-				where: { name: 'Aplicaciones' }
-			}]
-		});
+				include: [{
+					model: Category,
+					as: 'Category',
+					where: { name: 'Cable' }
+				}]
+			});
+			let productosInternet = await Product.findAll({
+				include: [{
+					model: Category,
+					as: 'Category',
+					where: { name: 'Internet' }
+				}]
+			});
+			let productosPaquetes = await Product.findAll({
+				include: [{
+					model: Category,
+					as: 'Category',
+					where: { name: 'Paquetes' }
+				}]
+			});
+			let productosAplicaciones = await Product.findAll({
+				include: [{
+					model: Category,
+					as: 'Category',
+					where: { name: 'Aplicaciones' }
+				}]
+			});
 
-		return res.render(path.resolve(__dirname, '..', 'views', 'products', 'productList'), {
-			cable: productosCable,
-			internet: productosInternet,
-			paquetes: productosPaquetes,
-			aplicaciones: productosAplicaciones,
-		});
+			return res.render(path.resolve(__dirname, '..', 'views', 'products', 'productList'), {
+				cable: productosCable,
+				internet: productosInternet,
+				paquetes: productosPaquetes,
+				aplicaciones: productosAplicaciones,
+			});
 		} catch (error) {
-      console.log(error);
-    }
+			console.log(error);
+		}
 	},
 
 	productCart: (req, res) => {
@@ -58,21 +59,23 @@ const productsController = {
 		const successful = null;
 		res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'), { successful });
 	},
-	
+
 	processCreate: async (req, res) => {
 		const resultValidation = validationResult(req);
 		var successful = false;
-        if (resultValidation.errors.length > 0) {
-			return res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'), { successful,
+		if (resultValidation.errors.length > 0) {
+			return res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'), {
+				successful,
 				errors: resultValidation.mapped(),
 				oldData: req.body
 			});
 		}
 
-        // REVISANDO QUE NO EXISTA UN PRODUCTO CON EL MISMO NOMBRE
-        let productInDB = await Product.findOne({ where: { name: req.body.name } });
-        if (productInDB) {
-			return res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'), { successful, 
+		// REVISANDO QUE NO EXISTA UN PRODUCTO CON EL MISMO NOMBRE
+		let productInDB = await Product.findOne({ where: { name: req.body.name } });
+		if (productInDB) {
+			return res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'), {
+				successful,
 				errors: {
 					name: {
 						msg: 'Ya existe un producto con este nombre'
@@ -82,27 +85,23 @@ const productsController = {
 			});
 		}
 
-        // CREANDO EL PRODUCTO
+		// CREANDO EL PRODUCTO
 		let crear = {
 			...req.body
 		}
 
 		crear.price = req.body.price * 1;
 
-		if(req.file){
-            crear.image = req.file.filename;
-        } else {
-            crear.image = "tv.svg";
-        }
-
-		if(req.body.offer == "true"){
-            crear.offer = true;
+		if (req.body.offer == "true") {
+			crear.offer = true;
 			crear.discount = req.body.discount * 1;
-        } else{
-            crear.offer = false;
-        }
+		} else {
+			crear.offer = false;
+		}
 
-		switch (req.body.category){
+		crear.image = req.file.filename;
+
+		switch (req.body.category) {
 			case "Cable":
 				crear.categoryId = 1;
 				break;
@@ -113,34 +112,42 @@ const productsController = {
 				crear.categoryId = 3;
 				break;
 			case "Aplicaciones":
-				crear.categoryId = 2;
+				crear.categoryId = 4;
 				break;
 		}
+
 		var successful = true
 		Product.create(crear)
-        .then(productos =>{
-            return res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'), { successful })
-		})},
+			.then(productos => {
+				return res.render(path.resolve(__dirname, '..', 'views', 'products', 'newProduct'), { successful })
+			})
+	},
 
 	edit: (req, res) => {
 		const successful = null;
-        Product.findOne({ where: { id: req.params.id } })
-        .then((productos) =>{
-            res.render(path.resolve(__dirname, '..', 'views', 'products', 'updateProduct'), {productos, successful})})
-        .catch(error => res.send(error))
+		Product.findOne({ where: { id: req.params.id } })
+			.then((productos) => {
+				res.render(path.resolve(__dirname, '..', 'views', 'products', 'updateProduct'), { productos, successful })
+			})
+			.catch(error => res.send(error))
 	},
 
-	update: (req, res) => {
+	update: async (req, res) => {
 		const resultValidation = validationResult(req);
 		var successful = false;
-        if (resultValidation.errors.length > 0) {
-			return res.render(path.resolve(__dirname, '..', 'views', 'products', 'updateProduct'), { successful,
-				errors: resultValidation.mapped(),
-				oldData: req.body
-			});
+		if (resultValidation.errors.length > 0) {
+			Product.findOne({ where: { id: req.params.id } })
+				.then((productos) => {
+					return res.render(path.resolve(__dirname, '..', 'views', 'products', 'updateProduct'), {
+						successful, productos,
+						errors: resultValidation.mapped(),
+						oldData: req.body
+					})
+				})
+				.catch(error => res.send(error))
 		}
 
-        // EDITANDO EL PRODUCTO
+		// EDITANDO EL PRODUCTO
 		let id = req.params.id * 1;
 		let servicioAModificar = {
 			...req.body
@@ -148,20 +155,24 @@ const productsController = {
 		servicioAModificar.id = id;
 		servicioAModificar.price = req.body.price * 1;
 
-		if(req.body.offer == "true"){
-            servicioAModificar.offer = true;
+		// CAMBIANDO LA CONFIGURACIÓN DE LAS OFERTAS
+		if (req.body.offer == "true") {
+			servicioAModificar.offer = true;
 			servicioAModificar.discount = req.body.discount * 1;
-        } else{
-            servicioAModificar.offer = false;
-        }
+		} else {
+			servicioAModificar.offer = false;
+			servicioAModificar.discount = 0;
+		}
 
+		// GUARDANDO LA IMAGEN
+		let product = await Product.findOne({ where: { id: req.params.id } });
+		let oldImage = product.image;
 		if(req.file){
-            servicioAModificar.image = req.file.filename;
-        } else{
-            servicioAModificar.image = "tv.svg";
-        }
+			servicioAModificar.image = req.file.filename;
+		} else {servicioAModificar.image = oldImage;}
 
-		switch (req.body.category){
+		// ASIGNANDO LA CATEGORIA
+		switch (req.body.category) {
 			case "Cable":
 				servicioAModificar.categoryId = 1;
 				break;
@@ -172,30 +183,48 @@ const productsController = {
 				servicioAModificar.categoryId = 3;
 				break;
 			case "Aplicaciones":
-				servicioAModificar.categoryId = 2;
+				servicioAModificar.categoryId = 4;
 				break;
 		}
 
+		//GUARDANDO CAMBIOS
 		Product.update(servicioAModificar, {
-                where: {
-                    id: req.params.id
-               }
-            });
+			where: {
+				id: req.params.id
+			}
+		});
+
 		var successful = true;
-        Product.findOne({ where: { id: req.params.id } })
-        	.then((productos) =>{
-            res.render(path.resolve(__dirname, '..', 'views', 'products', 'updateProduct'), {productos, successful})})
-        	.catch(error => res.send(error))
+
+		await Product.findOne({ where: { id: req.params.id } })
+			.then((productos) => {
+				res.render(path.resolve(__dirname, '..', 'views', 'products', 'updateProduct'), { productos: req.body, successful })
+			})
+			.catch(error => res.send(error))
 	},
 
-	destroy : (req, res) => {
-        Product.destroy({
-            where: {
-                id : req.params.id
-            }
-        })
-        .then(()=>  res.redirect('/productList'))
-        .catch(error => res.send(error))
+	destroy: (req, res) => {
+		Product.destroy({
+			where: {
+				id: req.params.id
+			}
+		})
+			.then(() => res.redirect('/productList'))
+			.catch(error => res.send(error))
+	},
+
+	find: (req, res) => {
+		Product.findAll({
+			where: {
+				[Op.or]: [
+					{ name: { [Op.like]: `%${req.body.busqueda}%` } },
+					{ description: { [Op.like]: `%${req.body.busqueda}%` } },
+					{ tags: { [Op.like]: `%${req.body.busqueda}%` } }
+				]
+			}
+		})
+			.then(resultado => { res.render(path.resolve(__dirname, '..', 'views', 'products', 'productsFind'), { productos: resultado }) })
+			.catch(error => res.send(error))
 	}
 };
 

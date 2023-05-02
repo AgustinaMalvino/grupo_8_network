@@ -24,6 +24,9 @@ module.exports = (sequelize, DataTypes) => {
         discount: {
             type: DataTypes.INTEGER
         },
+        tags: {
+            type: DataTypes.STRING
+        },
         categoryId: {
             type: DataTypes.INTEGER
         }

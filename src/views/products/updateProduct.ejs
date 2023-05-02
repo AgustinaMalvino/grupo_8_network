@@ -27,7 +27,7 @@
                     </span>
                  <%}%>
             <div class="seccion-formulario">
-                <label>Seleccione o suba una imagen/ícono que identifique al producto:</label>
+                <label>Suba una imagen/ícono que identifique al producto:</label>
                 <input type="file" name="image">
             </div>
             <% if(locals.errors && errors.image){%>
@@ -62,7 +62,7 @@
                     <% let categories=['Cable', 'Internet', 'Paquetes', 'Aplicaciones']; %>
                     <% let valor = 1 %>
                     <% for (const oneCategory of categories) { %>
-                        <option value="<%= oneCategory %>" <%= (valor === productos.categoryId) ? 'selected' : null %> > <%= oneCategory %> </option>
+                        <option value="<%= oneCategory %>" <%= (valor === productos.categoryId || oneCategory == productos.category) ? 'selected' : null %> > <%= oneCategory %> </option>
                         <% valor = valor + 1 %>
                         <% } %>
                 </select>
@@ -73,6 +73,10 @@
                         <%= errors.category.msg %>
                     </span>
                  <%}%>
+            <div class="seccion-formulario">
+                <label>Escriba etiquetas o palabras claves del producto</label>
+                <textarea name="tags" id="etiquetas" cols="50" rows="2"><%= productos.tags %></textarea>
+            </div>
             <div class="seccion-formulario">
                 <label>Escriba nuevo precio del producto:</label>
                 <input type="number" name="price" id="precio" min="1" required value="<%= productos.price%>" <%- locals.errors && errors.price ? 'class="input-error"' : null %>>
@@ -87,11 +91,11 @@
                 <p>¿Quiere agregar un descuento al producto?:</p>
                 <div class="opciones-radio">
                     <label>Si</label>
-                    <input type="radio" name="offer" value="true" id="yes" <%=productos.offer == true ? 'checked' : null %>>
+                    <input type="radio" name="offer" value="true" id="yes" <%=productos.offer == true || productos.offer == "true" ? 'checked' : null %>>
                 </div>
                 <div class="opciones-radio">
                     <label>No</label>
-                    <input type="radio" name="offer" value="false" id="no" <%=productos.offer == false ? 'checked' : null %>>
+                    <input type="radio" name="offer" value="false" id="no" <%=productos.offer == false || productos.offer == "false" ? 'checked' : null %>>
                 </div>
                 <label>Escriba porcentaje del descuento:</label>
                 <input type="number" name="discount" id="descuento" min="0" max="100" <%- locals.errors && errors.offer ? 'class="input-error"' : null %> value="<%= productos.discount%>">

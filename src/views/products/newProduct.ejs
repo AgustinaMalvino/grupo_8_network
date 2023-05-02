@@ -25,7 +25,7 @@
                     </span>
                  <%}%>
             <div class="seccion-formulario">
-                <label>Seleccione o suba una imagen/ícono que identifique al producto:</label>
+                <label>Suba una imagen/ícono que identifique al producto:</label>
                 <input type="file" name="image">
             </div>
             <% if(locals.errors && errors.image){%>
@@ -70,6 +70,10 @@
                         <%= errors.category.msg %>
                     </span>
                  <%}%>
+            <div class="seccion-formulario">
+                <label>Escriba etiquetas o palabras claves del producto</label>
+                <textarea name="tags" id="etiquetas" cols="50" rows="2"><%= locals.oldData ? oldData.tags : null %></textarea>
+            </div>
             <div class="seccion-formulario">
                 <label>Escriba el precio del producto:</label>
                 <input type="number" name="price" id="precio" min="1" value="<%= locals.oldData ? oldData.price : null %>" <%- locals.errors && errors.price ? 'class="input-error"' : null %>>

@@ -25,6 +25,10 @@ nav{
     margin: auto;
 }
 
+.profile{
+    width: 100%;
+}
+
 .nav-izq-der{
         padding: 0;
     }
@@ -74,6 +78,64 @@ nav select{
     width: 45%;
 }
 
+.boton-perfil{
+    width: 100%;
+    padding: 9px;
+    border-radius: 10px;
+    background: linear-gradient(to top right, #005377, #06A77D);
+    color: #fff;
+}
+
+.boton-perfil-borrar{
+    width: 100%;
+    padding: 9px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom left, #f44336, #e91e63);
+    color: #fff;
+}
+
+.boton-perfil-borrar:hover{
+    width: 100%;
+    padding: 9px;
+    border-radius: 10px;
+    background: linear-gradient(to top right, #f44336, #e91e63);
+    color: #fff;
+}
+
+
+.boton-perfil button{
+    width: 100%;
+    padding: 9px;
+    border-radius: 10px;
+    background: linear-gradient(to top right, #005377, #06A77D);
+    color: #fff;
+    cursor: pointer;
+}
+
+.boton-perfil-borrar button{
+    width: 100%;
+    padding: 9px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom left, #f44336, #e91e63);
+    color: #fff;
+    cursor: pointer;
+}
+
+.boton-perfil-borrar button:hover{
+    width: 100%;
+    padding: 9px;
+    border-radius: 10px;
+    background: linear-gradient(to top right, #f44336, #e91e63);
+    color: #fff;
+    cursor: pointer;
+}
+
+.botones-perfil{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
 .boton button, .boton-borrar button{
     width: 100%;
     padding: 9px;
@@ -97,6 +159,23 @@ button{
     margin: 16px 0;
 }
 
+.avatar{
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border-style: solid;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    background-color: var(--azul);
+    object-fit: cover;
+    position: relative;
+    z-index: 3;
+    color: #FFF;
+    font-size: 60px;
+}
+
 /* tablet */
 @media (min-width: 410px){
     nav{
@@ -114,6 +193,12 @@ button{
         justify-content: space-around;
         width: 45%;
     }
+
+    .avatar{
+    width: 180px;
+    height: 180px;
+    font-size: 100px;
+    }
 }
 
 
@@ -121,6 +206,10 @@ button{
 @media (min-width:860px){
     main{
         padding-top: 145px;
+    }
+
+    .profile{
+    width: max-content;
     }
 
     nav input{
@@ -155,5 +244,11 @@ button{
 
     footer{
         margin-top: 0;
+    }
+
+    .avatar{
+        width: 260px;
+        height: 260px;
+        font-size: 160px;
     }
 }

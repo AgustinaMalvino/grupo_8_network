@@ -12,19 +12,21 @@
             <p id="titulo-principal">Network</p>
             <div class="compras-sesion" alt="nav-bar">
                 <% if(locals.isLogged && locals.userLogged.role === 'admin'){%>
-                <a href="/newProduct">
+                <a href="/newProduct" id="newProduct">
                     <div class="carrito-compras" title="Agregar producto">
                         <i class="fas fa-plus-circle imagen-perfil"></i>
                     </div>
                 </a>
                 <% } %>
-                <% if(locals.isLogged) { %>
-                <a href="/productCart">
+                <% if(locals.isLogged && locals.userLogged.role === 'user') { %>
+                <a href="/productCart" id="productCart">
                     <div class="carrito-compras"  title="Carrito">
                         <i class="fas fa-shopping-cart imagen-perfil"></i>
                     </div>
                 </a>
-                <a href="/profile">
+                <% } %>
+                <% if(locals.isLogged) { %>
+                <a href="/profile" id="profile">
                     <div class="inicio-sesion">
                         <dis class="mi-cuenta" title="Ingresar a tu perfil">
                             <p>Entrar al perfil</p>
@@ -36,7 +38,7 @@
                         </dis>
                     </div>
                 </a>
-                <form action="/" method="post">
+                <form action="/" method="post" id="logout">
                     <button type="submit" class="inicio-sesion">
                         <div class="mi-cuenta" title="Cerrar sesión">
                             <p>Cerrar sesión</p>
@@ -45,7 +47,7 @@
                     </button>
                 </form>
                 <% } else { %>
-                <a href="/login">
+                <a href="/login" id="login">
                     <div class="inicio-sesion">
                         <div class="mi-cuenta" title="Iniciar sesión">
                             <p>Iniciar sesión</p>
@@ -53,7 +55,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="/register">
+                <a href="/register" id="register">
                     <div class="inicio-sesion">
                         <div class="mi-cuenta" title="Registrate con nosotros">
                             <p>Registrarse</p>
@@ -75,5 +77,6 @@
                 </form>
             </div>
         </section>
+        <script src="/js/header.js"></script>
 </body>
 </html>

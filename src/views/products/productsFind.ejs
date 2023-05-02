@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("../partials/head", {cssSheet: "productList" , title: "Resultados de tu búsqueda" }) %>
+</head>
+<body>
+    <header>
+        <%- include("../partials/header") %>
+    </header>
+    <main>
+        <h2>Resultados de tu búsqueda</h2>
+        <p>Se han encontrado <strong><%= productos.length %></strong> productos/servicios</p>
+        <section>
+            <div class="servicio-seleccion">
+                <% productos.forEach(producto => { %>
+                <div class='bloque'>
+                    <img src="/images/products/<%= producto.image %>" alt="<%= producto.name %>">
+                    <p><%= producto.name %></p>
+                    <ul class="detalle-servicio">
+                        <% producto.description.split(';').map(function(parrafo) { %>
+                            <li><%= parrafo %></li>
+                        <% }) %>
+                        <div class="precio">
+                            <p class="price">Precio: <% if(producto.offer == 1) { %>
+                            <del>$<%= producto.price %></del><i class="discount"><%= producto.discount %>%</i> <strong>$<%= Math.floor(producto.price * (100 - producto.discount) / 100).toLocaleString(undefined, {minimumFractionDigits: 0}) %>/mes</strong></p>
+                            <% } else { %>
+                                <strong>$<%= producto.price.toLocaleString(undefined, {minimumFractionDigits: 0}) %>/mes</strong></p>
+                            <% } %>
+                        </div>
+                        <% if(locals.isLogged && locals.userLogged.role === 'admin') { %>
+                        <a href="/<%= producto.id %>/edit">
+                        <div class="modificar">
+                            <i class="fas fa-edit"></i>
+                            <p>Modificar servicio</p>
+                        </div>
+                        </a>
+                        <a href="/<%= producto.id %>/delete">
+                            <div class="eliminar">
+                                <i class="fas fa-trash"></i>
+                                <p>Eliminar servicio</p>
+                            </div>
+                        </a>
+                        <% } %>
+                    </ul>
+                </div>
+                <% }) %>
+    </main>
+    <footer>
+        <%- include("../partials/footer") %>
+    </footer>
+</body>
+</html>

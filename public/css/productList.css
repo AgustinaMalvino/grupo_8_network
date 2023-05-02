@@ -163,15 +163,16 @@ main h3{
     display: block;
 }
 
-.bronce{
-    color: var(--arena);
-    fill: var(--arena);
+.price{
+    font-size: 0.65rem !important;
 }
 
-.oro{
-    color: var(--amarillo);
-    fill: var(--amarillo);
+.discount{
+    font-size: 0.5rem !important;
+    color: var(--arena);
+    font-weight: 600;
 }
+
 
 /* TABLET */
 
@@ -186,6 +187,14 @@ main h3{
 
     .bloque p{
         font-size: 4vw;
+    }
+
+    .price{
+    font-size: 3vw !important;
+    }
+
+    .discount{
+    font-size: 2vw !important;
     }
 
     .modificar i, .eliminar i{
@@ -207,6 +216,14 @@ main h3{
 /* PC */
 
 @media (min-width: 860px){
+
+    .price{
+    font-size: 1.25vw !important;
+    }
+
+    .discount{
+    font-size: 1vw !important;
+    }
 
     main {
     padding-top: 155px;

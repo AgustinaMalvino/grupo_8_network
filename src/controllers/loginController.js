@@ -50,6 +50,65 @@ const loginController = {
         res.clearCookie('email');
         req.session.destroy();
         res.redirect('/');
+    },
+    edit: (req, res) => {
+        const successful = null;
+		User.findOne({ where: { id: req.session.userLogged.id } })
+			.then((user) => {
+				res.render(path.resolve(__dirname, '..', 'views', 'users', 'profileEdit'), { user, successful })
+			})
+			.catch(error => res.send(error))
+    },
+    update: async (req, res) => {
+        const resultValidation = validationResult(req);
+		var successful = false;
+		if (resultValidation.errors.length > 0) {
+			User.findOne({ where: { id: req.session.userLogged.id } })
+				.then((user) => {
+					return res.render(path.resolve(__dirname, '..', 'views', 'users', 'profileEdit'), {
+						successful, user, 
+						errors: resultValidation.mapped(),
+						oldData: req.body
+					})
+				})
+				.catch(error => res.send(error))
+		}
+
+        // EDITANDO EL PRODUCTO
+		let id = req.session.userLogged.id * 1;
+		let usuarioAModificar = {
+			...req.body
+		}
+		usuarioAModificar.id = id;
+		usuarioAModificar.first_name = req.body.first_name;
+        usuarioAModificar.last_name = req.body.last_name;
+        usuarioAModificar.email = req.body.email;
+        usuarioAModificar.gender = req.body.gender;
+        if(req.file){
+            usuarioAModificar.image = req.file.filename;
+        } else{
+            usuarioAModificar.image = null;
+        }
+        if(req.body.notifications == 'on'){
+            usuarioAModificar.notifications = 1
+        } else{ usuarioAModificar.notifications = 0}
+
+        console.log(usuarioAModificar)
+
+        //GUARDANDO CAMBIOS
+		User.update(usuarioAModificar, {
+			where: {
+				id: req.session.userLogged.id
+			}
+		});
+
+		var successful = true;
+
+		await User.findOne({ where: { id: req.session.userLogged.id } })
+			.then((user) => {
+				res.render(path.resolve(__dirname, '..', 'views', 'users', 'profileEdit'), { user: req.body, successful })
+			})
+			.catch(error => res.send(error))
     }
 
 }

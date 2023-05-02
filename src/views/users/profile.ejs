@@ -13,49 +13,46 @@
     <main>
         <div class="main">
         <label><h2>¡Bienvenid@ <%= user.first_name %> <%= user.last_name %></h2></label>
-            <nav>
+        <% if(locals.userLogged.image != null){ %>
+                                <img src="/images/avatars/<%=locals.userLogged.image%>" alt="Imagen de perfil" class="avatar">
+                            <% } else { %>
+                            <i class="fas fa-user avatar"></i>
+                            <% } %>
+            <nav class="profile">
                 <ul class="nav-izq-der">
                 <li><div class = 'nombre'>
-                    <p>Nombre: <%= user.first_name %><p>
+                    <p>Nombre: <strong><%= user.first_name %></strong><p>
                 </div></li>
 
                 <li><div class="apellido">
-                    <p>Apellido: <%= user.last_name %><p>
+                    <p>Apellido: <strong><%= user.last_name %></strong><p>
                 </div></li>
                 
                 <li><div class = 'dom'>
-                    <p>Domicilio: <%= user.address %></p>  
+                    <p>Domicilio: <strong><%= user.address %></strong></p>  
                 </div></li>
 
                 <li><div class="correo">
-                    <p>Correo eléctronico: <%= user.email %></p>
+                    <p>Correo eléctronico: <strong><%= user.email %></strong></p>
 
-                </div></li>
-
-                <li><div class = 'tel'>
-                    <p>Imagen de perfil: <%= user.image %></p>
                 </div></li>
                 </ul>
 
                 <ul class="nav-izq-der">
                 <li><div class ='dni'>    
-                    <p>DNI: <%= user.DNI %></p>
+                    <p>DNI: <strong><%= user.DNI %></strong></p>
                 </div></li>
                 
                 <li><div class="fecha">
-                <label>Fecha de nacimiento: <%= user.birth_date %></label>
+                <label>Fecha de nacimiento: <strong><%= user.birth_date %></strong></label>
                 </div></li>
 
                 <li><div class="sexo">
-                    <p>Sexo: <%= user.gender %></p>
+                    <p>Sexo: <strong><%= user.gender %></strong></p>
                 </div></li>
 
                 <li><div class="contra">
-                    <p>Servicios vigentes: XX</p>
-                </div></li>
-
-                <li><div class="confir-contra">
-                    <p>Promociones vigentes: El XX% de descuento hasta la fecha XX/XX</p>
+                    <p>Servicios vigentes: <strong>XX</strong></p>
                 </div></li>
                 </ul>
             </nav>
@@ -65,14 +62,24 @@
                     <input type="checkbox" name="notificaciones" <%- (user.notifications == 1 || user.notifications == "true") ? 'checked' : null %>>                    
                 </div>
 
-                <div class="botones">
-                <div class="boton">
+                <div class="botones-perfil">
+                <a href="/profile/editar">
+                    <div class="boton-perfil">
                     <button type="submit">Editar perfil</button>
                 </div>
+                </a>
 
-                <div class="boton">
+                <a href="/profile/editPassword">
+                    <div class="boton-perfil">
+                    <button type="submit">Cambiar contraseña</button>
+                </div>
+                </a>
+
+                <a href="/profile/delete">
+                    <div class="boton-perfil-borrar">
                     <button type="reset"> Eliminar cuenta</button>
                 </div>
+                </a>
                 </div>
                 </div>
         </form>

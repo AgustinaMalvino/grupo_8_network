@@ -19,9 +19,10 @@
                 <ul class="nav-izq-der">
                 <li><div class = 'nombre'>
                     <label>Nombre:</label>
-                    <input type="text" name="first_name" required minlength="2" value="<%= locals.oldData ? oldData.first_name : null %>" class="<%- locals.errors && errors.first_name ? 'input-error' : null %>">
+                    <input type="text" name="first_name" id="nombre" required minlength="2" value="<%= locals.oldData ? oldData.first_name : null %>" class="<%- locals.errors && errors.first_name ? 'input-error' : null %>">
+                    <div id="firstNameValidation"></div>
                     <% if(locals.errors && errors.first_name){%>
-                    <span class="validation-error">
+                    <span class="validation-error" id="nombreError">
                         <i class="fas fa-exclamation-circle"></i>
                         <%= errors.first_name.msg %>
                     </span>
@@ -32,9 +33,10 @@
                 <ul class="nav-izq-der">
                 <li><div class="apellido">
                     <label>Apellido:</label>
-                    <input type="text" name="last_name" required minlength="2" value="<%= locals.oldData ? oldData.last_name : null %>" class="<%- locals.errors && errors.last_name ? 'input-error' : null %>">
+                    <input type="text" name="last_name" id="apellido" required minlength="2" value="<%= locals.oldData ? oldData.last_name : null %>" class="<%- locals.errors && errors.last_name ? 'input-error' : null %>">
+                    <div id="lastNameValidation"></div>
                     <% if(locals.errors && errors.last_name){%>
-                    <span class="validation-error">
+                    <span class="validation-error" id="apellidoError">
                         <i class="fas fa-exclamation-circle"></i>
                         <%= errors.last_name.msg %>
                     </span>
@@ -45,7 +47,7 @@
                 <ul class="nav-izq-der">
                 <li><div class = 'dom'>
                     <label>Domicilio:</label>
-                    <input type="text" name="address" required minlength="3" value="<%= locals.oldData ? oldData.address : null %>" class="<%- locals.errors && errors.address ? 'input-error' : null %>">
+                    <input type="text" name="address" id="domicilio" required minlength="3" value="<%= locals.oldData ? oldData.address : null %>" class="<%- locals.errors && errors.address ? 'input-error' : null %>">
                     <% if(locals.errors && errors.address){%>
                     <span class="validation-error">
                         <i class="fas fa-exclamation-circle"></i>
@@ -58,7 +60,7 @@
                 <ul class="nav-izq-der">
                 <li><div class="correo">
                     <label>Correo eléctronico:</label>
-                    <input type="email" name="email" required minlength="8" value="<%= locals.oldData ? oldData.email : null %>" class="<%- locals.errors && errors.email ? 'input-error' : null %>">
+                    <input type="email" name="email" id="email" required minlength="8" value="<%= locals.oldData ? oldData.email : null %>" class="<%- locals.errors && errors.email ? 'input-error' : null %>">
                     <% if(locals.errors && errors.email){%>
                     <span class="validation-error">
                         <i class="fas fa-exclamation-circle"></i>
@@ -92,9 +94,10 @@
                 <ul class="nav-izq-der">
                 <li><div class ='dni'>    
                     <label>DNI:</label>
-                    <input type="text" name="DNI" required minlength="7" value="<%= locals.oldData ? oldData.DNI : null %>" class="<%- locals.errors && errors.DNI ? 'input-error' : null %>">
+                    <input type="number" name="DNI" id="dni" required minlength="7" value="<%= locals.oldData ? oldData.DNI : null %>" class="<%- locals.errors && errors.DNI ? 'input-error' : null %>">
+                    <div id="dniValidation"></div>
                     <% if(locals.errors && errors.DNI){%>
-                    <span class="validation-error">
+                    <span class="validation-error" id="dniError">
                         <i class="fas fa-exclamation-circle"></i>
                         <%= errors.DNI.msg %>
                     </span>
@@ -119,9 +122,9 @@
                 <li><div class="contra">
                     <label>Contraseña:</label>
                     <input type="password" name="password" id="password" required class="<%- locals.errors && errors.password ? 'input-error' : null %>">
-                    <div id="validation"></div>
+                    <div id="passwordValidation"></div>
                     <% if(locals.errors && errors.password){%>
-                    <span class="validation-error">
+                    <span class="validation-error" id="passwordError">
                         <i class="fas fa-exclamation-circle"></i>
                         <%= errors.password.msg %>
                     </span>
@@ -139,9 +142,10 @@
                 <ul class="nav-izq-der">
                 <li><div class="confir-contra">
                     <label>Confirmar contraseña:</label>
-                    <input type="password" name="confirm_password" required class="<%- locals.errors && errors.confirm_password ? 'input-error' : null %>">
+                    <input type="password" name="confirm_password" id="confirm_password" required class="<%- locals.errors && errors.confirm_password ? 'input-error' : null %>">
+                    <div id="confirmPasswordValidation"></div>
                     <% if(locals.errors && errors.confirm_password){%>
-                    <span class="validation-error">
+                    <span class="validation-error" id="confirmPasswordError">
                         <i class="fas fa-exclamation-circle"></i>
                         <%= errors.confirm_password.msg %>
                     </span>
@@ -185,5 +189,6 @@
         <%- include("../partials/footer") %>
     </footer>
     <script src="/js/passwordValidation.js"></script>
+    <script src="/js/namesValidations.js"></script>
 </body>
 </html>

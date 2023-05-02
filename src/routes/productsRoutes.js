@@ -23,15 +23,18 @@ const storage = multer.diskStorage({
 // MIDDLEWARES DE RUTAS Y VALIDACIONES
 const adminMiddleware = require('../middlewares/adminMiddleware');
 const validations = require("../middlewares/productsValidations");
+const editValidations = require("../middlewares/editValidations");
 const uploadFile = multer({ storage });
 
 // RUTAS
+router.get('/find', productsController.find);
+router.post('/find', productsController.find);
 router.get('/productList', productsController.productList);
 router.get('/productCart', productsController.productCart);
 router.get('/newProduct', adminMiddleware, productsController.create);
 router.post('/newProduct', uploadFile.single('image'), validations, productsController.processCreate);
 router.get('/:id/edit', adminMiddleware, productsController.edit); 
-router.put('/:id/edit',uploadFile.single('image'), validations, productsController.update);
+router.put('/:id/edit',uploadFile.single('image'), editValidations, productsController.update);
 router.get('/:id/delete', productsController.destroy);
 
 module.exports = router;

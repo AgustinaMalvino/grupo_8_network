@@ -20,7 +20,16 @@
                     <img src="/images/products/<%= producto.image %>" alt="<%= producto.name %>">
                     <p><%= producto.name %></p>
                     <ul class="detalle-servicio">
-                        <%- producto.description %>
+                        <% producto.description.split(';').map(function(parrafo) { %>
+                            <li><%= parrafo %></li>
+                        <% }) %>
+                        <div class="precio">
+                            <p class="price">Precio: <% if(producto.offer == 1) { %>
+                            <del>$<%= producto.price %></del><i class="discount"><%= producto.discount %>%</i> <strong>$<%= Math.floor(producto.price * (100 - producto.discount) / 100).toLocaleString(undefined, {minimumFractionDigits: 0}) %>/mes</strong></p>
+                            <% } else { %>
+                                <strong>$<%= producto.price.toLocaleString(undefined, {minimumFractionDigits: 0}) %>/mes</strong></p>
+                            <% } %>
+                        </div>
                         <% if(locals.isLogged && locals.userLogged.role === 'admin') { %>
                         <a href="/<%= producto.id %>/edit">
                         <div class="modificar">
@@ -52,7 +61,16 @@
                     <img src="/images/products/<%= producto.image %>" alt="<%= producto.name %>">
                     <p><%= producto.name %></p>
                     <ul class="detalle-servicio">
-                        <%- producto.description %>
+                        <% producto.description.split(';').map(function(parrafo) { %>
+                            <li><%= parrafo %></li>
+                        <% }) %>
+                        <div class="precio">
+                            <p class="price">Precio: <% if(producto.offer == 1) { %>
+                            <del>$<%= producto.price %></del><i class="discount"><%= producto.discount %>%</i> <strong>$<%= Math.floor(producto.price * (100 - producto.discount) / 100).toLocaleString(undefined, {minimumFractionDigits: 0}) %>/mes</strong></p>
+                            <% } else { %>
+                                <strong>$<%= producto.price.toLocaleString(undefined, {minimumFractionDigits: 0}) %>/mes</strong></p>
+                            <% } %>
+                        </div>
                         <% if(locals.isLogged && locals.userLogged.role === 'admin') { %>
                         <a href="/<%= producto.id %>/edit">
                         <div class="modificar">
@@ -81,12 +99,19 @@
             <div class="servicio-seleccion">
                 <% paquetes.forEach(producto => { %>
                 <div class='bloque'>
-                    <figure class="logo-servicio">
-                        <img src="/images/products/<%= producto.image %>" alt="<%= producto.name %>">
-                    </figure>
+                    <img src="/images/products/<%= producto.image %>" alt="<%= producto.name %>">
                     <p><%= producto.name %></p>
                     <ul class="detalle-servicio">
-                        <%- producto.description %>
+                        <% producto.description.split(';').map(function(parrafo) { %>
+                            <li><%= parrafo %></li>
+                        <% }) %>
+                        <div class="precio">
+                            <p class="price">Precio: <% if(producto.offer == 1) { %>
+                            <del>$<%= producto.price %></del><i class="discount"><%= producto.discount %>%</i> <strong>$<%= Math.floor(producto.price * (100 - producto.discount) / 100).toLocaleString(undefined, {minimumFractionDigits: 0}) %>/mes</strong></p>
+                            <% } else { %>
+                                <strong>$<%= producto.price.toLocaleString(undefined, {minimumFractionDigits: 0}) %>/mes</strong></p>
+                            <% } %>
+                        </div>
                         <% if(locals.isLogged && locals.userLogged.role === 'admin') { %>
                         <a href="/<%= producto.id %>/edit">
                         <div class="modificar">
@@ -118,7 +143,16 @@
                     <img src="/images/products/<%= producto.image %>" alt="<%= producto.name %>">
                     <p><%= producto.name %></p>
                     <ul class="detalle-servicio">
-                        <%- producto.description %>
+                        <% producto.description.split(';').map(function(parrafo) { %>
+                            <li><%= parrafo %></li>
+                        <% }) %>
+                        <div class="precio">
+                            <p class="price">Precio: <% if(producto.offer == 1) { %>
+                            <del>$<%= producto.price %></del><i class="discount"><%= producto.discount %>%</i> <strong>$<%= Math.floor(producto.price * (100 - producto.discount) / 100).toLocaleString(undefined, {minimumFractionDigits: 0}) %>/mes</strong></p>
+                            <% } else { %>
+                                <strong>$<%= producto.price.toLocaleString(undefined, {minimumFractionDigits: 0}) %>/mes</strong></p>
+                            <% } %>
+                        </div>
                         <% if(locals.isLogged && locals.userLogged.role === 'admin') { %>
                         <a href="/<%= producto.id %>/edit">
                         <div class="modificar">

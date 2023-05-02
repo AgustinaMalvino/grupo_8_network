@@ -243,6 +243,10 @@ footer ul, footer ul li{
 /* PC */
 
 @media (min-width: 860px) {
+        #newProduct, #productCart, #profile, #logout, #login, #register{
+        display: flex;
+    }
+
     .cabecera{
         height: 108px;
     }
